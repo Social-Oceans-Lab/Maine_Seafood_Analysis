@@ -1,2 +1,3 @@
-# Maine_Seafood_Analysis
-Code to analyze data related to Maine's seafood economy
+# Maine Seafood_Analysis
+
+Our analysis "toolbox" will help researchers, managers, and other interested stakeholders analyze data related to Maine's seafood economy. 
