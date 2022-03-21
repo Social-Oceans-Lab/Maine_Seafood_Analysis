@@ -12,10 +12,21 @@ Please direct questions, comments, or feedback to Joshua Stoll (joshua.stoll@mai
 
 The flowchats below provide information about how data, code, and analyses are organized. Collectively Figures 2 - 5 can be used to replicate the figures and analyses produced in MSAT.  
 
-Figure 2. Fisheries Access
+
+### Figure 2. Fisheries Access
 
 <img style="float: center;" src="https://github.com/Social-Oceans-Lab/Maine_Seafood_Analysis/blob/main/Background/Fig2.Toolbox.jpg" alt="Figure2_Toolbox_Structure" width="600"> 
 
-Figure 3. Seafood Production
+
+
+### Figure 3. Seafood Production
 
 <img style="float: center;" src="https://github.com/Social-Oceans-Lab/Maine_Seafood_Analysis/blob/main/Background/Fig3.Toolbox.jpg" alt="Figure3_Toolbox_Structure" width="600"> 
+
+### Figure 4. Seafood Markets
+
+
+### Figure 5. Future Outlook
+
+
+<img style="float: center;" src="https://github.com/Social-Oceans-Lab/Maine_Seafood_Analysis/blob/main/Background/Fig5.Toolbox.jpg" alt="Figure5_Toolbox_Structure" width="600"> 
