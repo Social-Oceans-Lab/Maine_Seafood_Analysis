@@ -2,7 +2,7 @@
 
 The Maine Seafood Analysis Toolbox (MSAT) provides researchers, managers, and other interested stakeholders with code to analyze data related to Maine's seafood economy. 
 
-<img style="float: right;" src="https://github.com/Social-Oceans-Lab/Maine_Seafood_Analysis/blob/main/Figures/Fig1.Toolbox.jpg" alt="Figure1_Toolbox_Structure" width="600"> 
+<img style="float: right;" src="https://github.com/Social-Oceans-Lab/Maine_Seafood_Analysis/blob/main/Background/Fig1.Toolbox.jpg" alt="Figure1_Toolbox_Structure" width="600"> 
 
 MSAT (Verion 1.0, March, 2022) is subdivided into domains related to: (1) fisheries access, (2) seafood production, (3) market opportunity, and (4) future outlook (Figure 1). Each domain includes links to the original raw data, R code, and output figures/tables. 
 
