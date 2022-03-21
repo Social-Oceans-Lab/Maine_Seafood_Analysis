@@ -15,3 +15,7 @@ The flowchats below provide information about how data, code, and analyses are o
 Figure 2. Fisheries Access
 
 <img style="float: center;" src="https://github.com/Social-Oceans-Lab/Maine_Seafood_Analysis/blob/main/Background/Fig2.Toolbox.jpg" alt="Figure2_Toolbox_Structure" width="600"> 
+
+Figure 3. Seafood Production
+
+<img style="float: center;" src="https://github.com/Social-Oceans-Lab/Maine_Seafood_Analysis/blob/main/Background/Fig3.Toolbox.jpg" alt="Figure3_Toolbox_Structure" width="600"> 
