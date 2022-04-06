@@ -182,3 +182,7 @@ final                                                                           
 
 dev.off()                                                                                            #render graph (?)
 #RUN THIS WHOLE CHUNK AT ONCE OR IT WON'T WORK!!!
+
+# Save figure 
+
+ggsave("2.a.Total_Seafood_Value_ME_2010_2020.pdf", width = 15, height = 9)
