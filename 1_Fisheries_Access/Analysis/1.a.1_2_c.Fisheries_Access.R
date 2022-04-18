@@ -433,6 +433,231 @@ for(i in 1:nrow(me_lic_2016_2021)) {
 
 me_lic_2016_2021 <- me_lic_2016_2021[!duplicated(me_lic_2016_2021), ]
 
+# Merge licenses into fisheries categories
+
+ln <- nrow(me_lic_2016_2021)
+Lic_Category	<- vector(length=ln, mode="numeric")
+
+for(i in 1:nrow(me_lic_2016_2021)) {
+  if(me_lic_2016_2021$License.Type[i] == 'LA' | 
+     me_lic_2016_2021$License.Type[i] == 'LAO' | 
+     me_lic_2016_2021$License.Type[i] == 'LAU' |
+     me_lic_2016_2021$License.Type[i] == 'LC1' |
+     me_lic_2016_2021$License.Type[i] == 'LC2' |
+     me_lic_2016_2021$License.Type[i] == 'LC2O' |
+     me_lic_2016_2021$License.Type[i] == 'LC3' |
+     me_lic_2016_2021$License.Type[i] == 'LC3O' |
+     me_lic_2016_2021$License.Type[i] == 'LCO' |
+     me_lic_2016_2021$License.Type[i] == 'LCS' |
+     me_lic_2016_2021$License.Type[i] == 'LCU' |
+     me_lic_2016_2021$License.Type[i] == 'MILC1' |
+     me_lic_2016_2021$License.Type[i] == 'NBAL' |
+     me_lic_2016_2021$License.Type[i] == 'NBSL' |
+     me_lic_2016_2021$License.Type[i] == 'PSUL' |
+     me_lic_2016_2021$License.Type[i] == 'PLC3' |
+     me_lic_2016_2021$License.Type[i] == 'PAL' 
+     ) me_lic_2016_2021$Lic_Category[i] <- 'Lobster'
+  
+}
+
+for(i in 1:nrow(me_lic_2016_2021)) {
+  if(me_lic_2016_2021$License.Type[i] == 'E0' | 
+     me_lic_2016_2021$License.Type[i] == 'E1' | 
+     me_lic_2016_2021$License.Type[i] == 'E1C' |
+     me_lic_2016_2021$License.Type[i] == 'E2' |
+     me_lic_2016_2021$License.Type[i] == 'E6' |
+     me_lic_2016_2021$License.Type[i] == 'E0C' |
+     me_lic_2016_2021$License.Type[i] == 'E2C' |
+     me_lic_2016_2021$License.Type[i] == 'E6C' | 
+     me_lic_2016_2021$License.Type[i] == 'EP' |
+     me_lic_2016_2021$License.Type[i] == 'PELD' |
+     me_lic_2016_2021$License.Type[i] == 'NBED' |
+     me_lic_2016_2021$License.Type[i] == 'NBEF' |
+     me_lic_2016_2021$License.Type[i] == 'PELF' |
+     me_lic_2016_2021$License.Type[i] == 'NBEF2' |
+     me_lic_2016_2021$License.Type[i] == 'NBEF2C' |
+     me_lic_2016_2021$License.Type[i] == 'MAEF' |
+     me_lic_2016_2021$License.Type[i] == 'MAED' |
+     me_lic_2016_2021$License.Type[i] == 'MIDF' |
+     me_lic_2016_2021$License.Type[i] == 'MIDFC' |
+     me_lic_2016_2021$License.Type[i] == 'MIEF' |
+     me_lic_2016_2021$License.Type[i] == 'NBEDF' |
+     me_lic_2016_2021$License.Type[i] == 'NBEDF2C'|
+     me_lic_2016_2021$License.Type[i] == 'PELFC' |
+     me_lic_2016_2021$License.Type[i] == 'PELDC'
+  ) me_lic_2016_2021$Lic_Category[i] <- 'Elver & Eel'
+  
+}
+
+
+for(i in 1:nrow(me_lic_2016_2021)) {
+  if(me_lic_2016_2021$License.Type[i] == 'CFS' | 
+     me_lic_2016_2021$License.Type[i] == 'CFC' |
+     me_lic_2016_2021$License.Type[i] == 'NBCFS' |
+     me_lic_2016_2021$License.Type[i] == 'NBSF' |
+     me_lic_2016_2021$License.Type[i] == 'PSCF' |
+     me_lic_2016_2021$License.Type[i] == 'PCFS' |
+     me_lic_2016_2021$License.Type[i] == 'PCFC' 
+  ) me_lic_2016_2021$Lic_Category[i] <- 'General'
+  
+}
+
+for(i in 1:nrow(me_lic_2016_2021)) {
+  if(me_lic_2016_2021$License.Type[i] == 'GC' 
+  ) me_lic_2016_2021$Lic_Category[i] <- 'Green Crab'
+  
+}
+
+for(i in 1:nrow(me_lic_2016_2021)) {
+  if(me_lic_2016_2021$License.Type[i] == 'MD' |
+     me_lic_2016_2021$License.Type[i] == 'MH' |
+     me_lic_2016_2021$License.Type[i] == 'NBMD' |
+     me_lic_2016_2021$License.Type[i] == 'NBMH' 
+  ) me_lic_2016_2021$Lic_Category[i] <- 'Blue Mussel'
+  
+}
+
+
+for(i in 1:nrow(me_lic_2016_2021)) {
+  if(me_lic_2016_2021$License.Type[i] == 'SURF' |
+     me_lic_2016_2021$License.Type[i] == 'MH' 
+  ) me_lic_2016_2021$Lic_Category[i] <- 'Surf Clam'
+  
+}
+
+for(i in 1:nrow(me_lic_2016_2021)) {
+  if(me_lic_2016_2021$License.Type[i] == 'CPC' |
+     me_lic_2016_2021$License.Type[i] == 'CPS' |
+     me_lic_2016_2021$License.Type[i] == 'PCPS' 
+  ) me_lic_2016_2021$Lic_Category[i] <- 'Anadromous & Pelagic'
+  
+}
+
+
+for(i in 1:nrow(me_lic_2016_2021)) {
+  if(me_lic_2016_2021$License.Type[i] == 'QM' 
+  ) me_lic_2016_2021$Lic_Category[i] <- 'Quahog'
+  
+}
+
+for(i in 1:nrow(me_lic_2016_2021)) {
+  if(me_lic_2016_2021$License.Type[i] == 'SD' |
+     me_lic_2016_2021$License.Type[i] == 'SDT' |
+     me_lic_2016_2021$License.Type[i] == 'SDI' |
+     me_lic_2016_2021$License.Type[i] == 'MISD' |
+     me_lic_2016_2021$License.Type[i] == 'MISDT' |
+     me_lic_2016_2021$License.Type[i] == 'NBSD' |     
+     me_lic_2016_2021$License.Type[i] == 'NBSC' |
+     me_lic_2016_2021$License.Type[i] == 'PSUS' |
+     me_lic_2016_2021$License.Type[i] == 'PSDI' |
+     me_lic_2016_2021$License.Type[i] == 'PSD'
+  ) me_lic_2016_2021$Lic_Category[i] <- 'Scallop (including tenders)'
+  
+}
+
+for(i in 1:nrow(me_lic_2016_2021)) {
+  if(me_lic_2016_2021$License.Type[i] == 'SUH' |
+     me_lic_2016_2021$License.Type[i] == 'SUWT' |
+     me_lic_2016_2021$License.Type[i] == 'SUB' |
+     me_lic_2016_2021$License.Type[i] == 'SUR' |
+     me_lic_2016_2021$License.Type[i] == 'SUB' |
+     me_lic_2016_2021$License.Type[i] == 'PSUH' |
+     me_lic_2016_2021$License.Type[i] == 'PSUB' |
+     me_lic_2016_2021$License.Type[i] == 'PSSU' 
+  ) me_lic_2016_2021$Lic_Category[i] <- 'Green Urchin (including tenders)'
+  
+}
+
+for(i in 1:nrow(me_lic_2016_2021)) {
+  if(me_lic_2016_2021$License.Type[i] == 'SW' |
+     me_lic_2016_2021$License.Type[i] == 'PSW'
+  ) me_lic_2016_2021$Lic_Category[i] <- 'Seaweed'
+  
+}
+
+for(i in 1:nrow(me_lic_2016_2021)) {
+  if(me_lic_2016_2021$License.Type[i] == 'SCD' 
+  ) me_lic_2016_2021$Lic_Category[i] <- 'Sea Cucumber'
+  
+}
+
+for(i in 1:nrow(me_lic_2016_2021)) {
+  if(me_lic_2016_2021$License.Type[i] == 'CS' |
+     me_lic_2016_2021$License.Type[i] == 'CSO' |
+     me_lic_2016_2021$License.Type[i] == 'CSU' |
+     me_lic_2016_2021$License.Type[i] == 'MICS' |
+     me_lic_2016_2021$License.Type[i] == 'NBCS' |
+     me_lic_2016_2021$License.Type[i] == 'NBSS' |
+     me_lic_2016_2021$License.Type[i] == 'PCS' |
+     me_lic_2016_2021$License.Type[i] == 'PSSH'
+  ) me_lic_2016_2021$Lic_Category[i] <- 'Shellfish'
+  
+}
+
+for(i in 1:nrow(me_lic_2016_2021)) {
+  if(me_lic_2016_2021$License.Type[i] == 'MWD' |
+     me_lic_2016_2021$License.Type[i] == 'MIMWD' 
+  ) me_lic_2016_2021$Lic_Category[i] <- 'Worm'
+  
+}
+
+
+for(i in 1:nrow(me_lic_2016_2021)) {
+  if(me_lic_2016_2021$License.Type[i] == 'MENC' 
+  ) me_lic_2016_2021$Lic_Category[i] <- 'Menhaden'
+  
+}
+
+for(i in 1:nrow(me_lic_2016_2021)) {
+  if(me_lic_2016_2021$License.Type[i] == 'AL' 
+  ) me_lic_2016_2021$Lic_Category[i] <- 'Aquaculture'
+  
+}
+
+for(i in 1:nrow(me_lic_2016_2021)) {
+  if(me_lic_2016_2021$License.Type[i] == 'TEN' 
+  ) me_lic_2016_2021$Lic_Category[i] <- 'Tender'
+  
+}
+
+for(i in 1:nrow(me_lic_2016_2021)) {
+  if(me_lic_2016_2021$License.Type[i] == 'SWRO' 
+  ) me_lic_2016_2021$Lic_Category[i] <- 'Recreational Saltwater Fishing Operation'
+  
+}
+
+for(i in 1:nrow(me_lic_2016_2021)) {
+  if(me_lic_2016_2021$License.Type[i] == 'CAR' |
+    me_lic_2016_2021$License.Type[i] == 'DL' |
+    me_lic_2016_2021$License.Type[i] == 'DS' 
+  ) me_lic_2016_2021$Lic_Category[i] <- 'Other'
+  
+}
+
+#for(i in 1:nrow(FishTable)) {
+#  FishTable$SHRIMP[i] <- if (FishTable$CSC[i] == 1) 1 else if (FishTable$CSS[i] == 1) 1 else 0
+#}
+
+
+# Remove non-commercial licenses 
+me_lic_2016_2021 <- me_lic_2016_2021[which(me_lic_2016_2021$License.Type != 'DL'), ]
+me_lic_2016_2021 <- me_lic_2016_2021[which(me_lic_2016_2021$License.Type != 'SWR'), ]
+me_lic_2016_2021 <- me_lic_2016_2021[which(me_lic_2016_2021$License.Type != 'LNC'), ]
+me_lic_2016_2021 <- me_lic_2016_2021[which(me_lic_2016_2021$License.Type != 'GCN'), ]
+me_lic_2016_2021 <- me_lic_2016_2021[which(me_lic_2016_2021$License.Type != 'MENNR'), ]
+me_lic_2016_2021 <- me_lic_2016_2021[which(me_lic_2016_2021$License.Type != 'MENR'), ]
+me_lic_2016_2021 <- me_lic_2016_2021[which(me_lic_2016_2021$License.Type != 'NCF'), ]
+me_lic_2016_2021 <- me_lic_2016_2021[which(me_lic_2016_2021$License.Type != 'NCS'), ]
+me_lic_2016_2021 <- me_lic_2016_2021[which(me_lic_2016_2021$License.Type != 'NCP'), ]
+me_lic_2016_2021 <- me_lic_2016_2021[which(me_lic_2016_2021$License.Type != 'NLC1'), ]
+me_lic_2016_2021 <- me_lic_2016_2021[which(me_lic_2016_2021$License.Type != 'NRS'), ]
+me_lic_2016_2021 <- me_lic_2016_2021[which(me_lic_2016_2021$License.Type != 'NRSS'), ]
+me_lic_2016_2021 <- me_lic_2016_2021[which(me_lic_2016_2021$License.Type != 'NTP'), ]
+me_lic_2016_2021 <- me_lic_2016_2021[which(me_lic_2016_2021$License.Type != 'SPT'), ]
+me_lic_2016_2021 <- me_lic_2016_2021[which(me_lic_2016_2021$License.Type != 'SWS'), ]
+me_lic_2016_2021 <- me_lic_2016_2021[which(me_lic_2016_2021$License.Type != 'VH'), ]
+
+
 
 ### Create table of the number of license per year
 
@@ -484,21 +709,34 @@ write.csv(LicTypes_2016_2021, "LicTypes_2016_2021.csv") # write summary table to
 color_region <- colorRampPalette(c("#233749", "#e37a55"))(3)  # set colors
 
 me_lic_2021 <- me_lic_2016_2021[which(me_lic_2016_2021$License.Year == 2021), ]
-me_lic_2021 <- me_lic_2021[which(me_lic_2021$License.Type != 'SWR'), ]
-me_lic_2021 <- me_lic_2021[which(me_lic_2021$License.Type != 'LNC'), ]
 
 lic_count <- ggplot(me_lic_2021, aes(fill=Region, x=License.Type, y= License.Year/2021)) + 
   theme_classic() +
   ylab("License Count") +
   xlab(" ") +
   ggtitle("Number of Licenses by Region (2021)") +
-  labs(caption="Note: Plot does not include LNC or SWO license categories.")+
+  labs(caption="Note: Plot does not include non-residential or recreational license categories.")+
   scale_fill_manual(values = color_region) +  
   scale_y_continuous(labels = scales::comma) +
   theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1, size = 8)) +
   geom_bar(stat="identity")
 
 ggsave("1.a.1.Fisheries_Access.pdf", width = 15, height = 9)
+
+# Plot numbers of licenses by region and fisheries category
+
+lic_count_category <- ggplot(me_lic_2021, aes(fill=Region, x= Lic_Category, y= License.Year/2021)) + 
+  theme_classic() +
+  ylab("License Count") +
+  xlab(" ") +
+  ggtitle("Number of Licenses by Region (2021)") +
+  labs(caption="Note: Plot does not include non-residential or recreational license categories.")+
+  scale_fill_manual(values = color_region) +  
+  scale_y_continuous(labels = scales::comma) +
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1, size = 8)) +
+  geom_bar(stat="identity")
+
+ggsave("1.a.3.Fisheries_Access.pdf", width = 15, height = 9)
 
 
 ### Age Distribution
