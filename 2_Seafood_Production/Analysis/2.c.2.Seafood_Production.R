@@ -360,3 +360,361 @@ ggsave("2.c.2.Trends_Landing.pdf", width = 15, height = 9)
 # Save data
 
 write.csv(score, "me_lic_2021_strength.csv")
+
+
+# Species specific plots
+
+# American lobster 
+lobster <- lands_z_me_nonconf_focus[which(lands_z_me_nonconf_focus$Common.Name == 'LOBSTER, AMERICAN'),]
+
+p1 <- ggplot(lobster, aes(x=Year, y=zscores, color = zscores)) +
+  #geom_line(size = 1)+
+  geom_hline(yintercept=0, size = 2) +
+  stat_smooth(aes(color=..y..), method = "lm", formula = y ~ x, size = 2) +
+  scale_colour_gradient2(low = "#062847", high = "#e03f07", 
+                         midpoint=0) +
+  geom_point(size = 3) +
+  ggtitle("10-Year Trend in Landings by Volume (American Lobster)") +
+  ylim(-3,3) +
+  xlab(" ") + 
+  ylab("Annual Variability in Landings Volume (normalized z-score)") +
+  labs(color = "Z score") +
+  scale_x_continuous(breaks=seq(2010,2020,1)) +
+  theme_dark() +
+  theme(axis.text.x = element_text(angle = 90, vjust = .5)) 
+
+ggsave("2.c.2.a.Trends_Landing.pdf", width = 15, height = 9)
+
+# Clam, Quahog, Ocean  
+quahog <- lands_z_me_nonconf_focus[which(lands_z_me_nonconf_focus$Common.Name == 'CLAM, QUAHOG, OCEAN'),]
+
+p2 <- ggplot(quahog, aes(x=Year, y=zscores, color = zscores)) +
+  #geom_line(size = 1)+
+  geom_hline(yintercept=0, size = 2) +
+  stat_smooth(aes(color=..y..), method = "lm", formula = y ~ x, size = 2) +
+  scale_colour_gradient2(low = "#062847", high = "#e03f07", 
+                         midpoint=0) +
+  geom_point(size = 3) +
+  ggtitle("10-Year Trend in Landings by Volume (Ocean Quahog)") +
+  ylim(-3,3) +
+  xlab(" ") + 
+  ylab("Annual Variability in Landings Volume (normalized z-score)") +
+  labs(color = "Z score") +
+  scale_x_continuous(breaks=seq(2010,2020,1)) +
+  theme_dark() +
+  theme(axis.text.x = element_text(angle = 90, vjust = .5)) 
+
+ggsave("2.c.2.b.Trends_Landing.pdf", width = 15, height = 9)
+
+# Goosefish
+monkfish <- lands_z_me_nonconf_focus[which(lands_z_me_nonconf_focus$Common.Name == 'GOOSEFISH'),]
+
+p3 <- ggplot(monkfish, aes(x=Year, y=zscores, color = zscores)) +
+  #geom_line(size = 1)+
+  geom_hline(yintercept=0, size = 2) +
+  stat_smooth(aes(color=..y..), method = "lm", formula = y ~ x, size = 2) +
+  scale_colour_gradient2(low = "#062847", high = "#e03f07", 
+                         midpoint=0) +
+  geom_point(size = 3) +
+  ggtitle("10-Year Trend in Landings by Volume (Monkfish)") +
+  ylim(-3,3) +
+  xlab(" ") + 
+  ylab("Annual Variability in Landings Volume (normalized z-score)") +
+  labs(color = "Z score") +
+  scale_x_continuous(breaks=seq(2010,2020,1)) +
+  theme_dark() +
+  theme(axis.text.x = element_text(angle = 90, vjust = .5)) 
+
+ggsave("2.c.2.c.Trends_Landing.pdf", width = 15, height = 9)
+
+
+# Pollock
+pollock <- lands_z_me_nonconf_focus[which(lands_z_me_nonconf_focus$Common.Name == 'POLLOCK'),]
+
+p4 <- ggplot(pollock, aes(x=Year, y=zscores, color = zscores)) +
+  #geom_line(size = 1)+
+  geom_hline(yintercept=0, size = 2) +
+  stat_smooth(aes(color=..y..), method = "lm", formula = y ~ x, size = 2) +
+  scale_colour_gradient2(low = "#062847", high = "#e03f07", 
+                         midpoint=0) +
+  geom_point(size = 3) +
+  ggtitle("10-Year Trend in Landings by Volume (Pollock)") +
+  ylim(-3,3) +
+  xlab(" ") + 
+  ylab("Annual Variability in Landings Volume (normalized z-score)") +
+  labs(color = "Z score") +
+  scale_x_continuous(breaks=seq(2010,2020,1)) +
+  theme_dark() +
+  theme(axis.text.x = element_text(angle = 90, vjust = .5)) 
+
+ggsave("2.c.2.d.Trends_Landing.pdf", width = 15, height = 9)
+
+
+# Atlantic Halibut
+halibut <- lands_z_me_nonconf_focus[which(lands_z_me_nonconf_focus$Common.Name == 'HALIBUT, ATLANTIC'),]
+
+p5 <- ggplot(halibut, aes(x=Year, y=zscores, color = zscores)) +
+  #geom_line(size = 1)+
+  geom_hline(yintercept=0, size = 2) +
+  stat_smooth(aes(color=..y..), method = "lm", formula = y ~ x, size = 2) +
+  scale_colour_gradient2(low = "#062847", high = "#e03f07", 
+                         midpoint=0) +
+  geom_point(size = 3) +
+  ggtitle("10-Year Trend in Landings by Volume (Atlantic halibut)") +
+  ylim(-3,3) +
+  xlab(" ") + 
+  ylab("Annual Variability in Landings Volume (normalized z-score)") +
+  labs(color = "Z score") +
+  scale_x_continuous(breaks=seq(2010,2020,1)) +
+  theme_dark() +
+  theme(axis.text.x = element_text(angle = 90, vjust = .5)) 
+
+ggsave("2.c.2.e.Trends_Landing.pdf", width = 15, height = 9)
+
+
+# Atlantic cod
+cod <- lands_z_me_nonconf_focus[which(lands_z_me_nonconf_focus$Common.Name == 'COD, ATLANTIC'),]
+
+p6 <- ggplot(cod, aes(x=Year, y=zscores, color = zscores)) +
+  #geom_line(size = 1)+
+  geom_hline(yintercept=0, size = 2) +
+  stat_smooth(aes(color=..y..), method = "lm", formula = y ~ x, size = 2) +
+  scale_colour_gradient2(low = "#062847", high = "#e03f07", 
+                         midpoint=0) +
+  geom_point(size = 3) +
+  ggtitle("10-Year Trend in Landings by Volume (Atlantic cod)") +
+  ylim(-3,3) +
+  xlab(" ") + 
+  ylab("Annual Variability in Landings Volume (normalized z-score)") +
+  labs(color = "Z score") +
+  scale_x_continuous(breaks=seq(2010,2020,1)) +
+  theme_dark() +
+  theme(axis.text.x = element_text(angle = 90, vjust = .5)) 
+
+ggsave("2.c.2.f.Trends_Landing.pdf", width = 15, height = 9)
+
+
+# American eel
+eel <- lands_z_me_nonconf_focus[which(lands_z_me_nonconf_focus$Common.Name == 'EEL, AMERICAN'),]
+
+p7 <- ggplot(eel, aes(x=Year, y=zscores, color = zscores)) +
+  #geom_line(size = 1)+
+  geom_hline(yintercept=0, size = 2) +
+  stat_smooth(aes(color=..y..), method = "lm", formula = y ~ x, size = 2) +
+  scale_colour_gradient2(low = "#062847", high = "#e03f07", 
+                         midpoint=0) +
+  geom_point(size = 3) +
+  ggtitle("10-Year Trend in Landings by Volume (American eel)") +
+  ylim(-3,3) +
+  xlab(" ") + 
+  ylab("Annual Variability in Landings Volume (normalized z-score)") +
+  labs(color = "Z score") +
+  scale_x_continuous(breaks=seq(2010,2020,1)) +
+  theme_dark() +
+  theme(axis.text.x = element_text(angle = 90, vjust = .5)) 
+
+ggsave("2.c.2.g.Trends_Landing.pdf", width = 15, height = 9)
+
+
+# Haddock 
+haddock <- lands_z_me_nonconf_focus[which(lands_z_me_nonconf_focus$Common.Name == 'HADDOCK'),]
+
+p8 <- ggplot(haddock, aes(x=Year, y=zscores, color = zscores)) +
+  #geom_line(size = 1)+
+  geom_hline(yintercept=0, size = 2) +
+  stat_smooth(aes(color=..y..), method = "lm", formula = y ~ x, size = 2) +
+  scale_colour_gradient2(low = "#062847", high = "#e03f07", 
+                         midpoint=0) +
+  geom_point(size = 3) +
+  ggtitle("10-Year Trend in Landings by Volume (Haddock)") +
+  ylim(-3,3) +
+  xlab(" ") + 
+  ylab("Annual Variability in Landings Volume (normalized z-score)") +
+  labs(color = "Z score") +
+  scale_x_continuous(breaks=seq(2010,2020,1)) +
+  theme_dark() +
+  theme(axis.text.x = element_text(angle = 90, vjust = .5)) 
+
+ggsave("2.c.2.h.Trends_Landing.pdf", width = 15, height = 9)
+
+
+# softshell clam 
+
+clam_soft <- lands_z_me_nonconf_focus[which(lands_z_me_nonconf_focus$Common.Name == 'CLAM, SOFT'),]
+
+p9 <- ggplot(clam_soft, aes(x=Year, y=zscores, color = zscores)) +
+  #geom_line(size = 1)+
+  geom_hline(yintercept=0, size = 2) +
+  stat_smooth(aes(color=..y..), method = "lm", formula = y ~ x, size = 2) +
+  scale_colour_gradient2(low = "#062847", high = "#e03f07", 
+                         midpoint=0) +
+  geom_point(size = 3) +
+  ggtitle("10-Year Trend in Landings by Volume (Softshell clam)") +
+  ylim(-3,3) +
+  xlab(" ") + 
+  ylab("Annual Variability in Landings Volume (normalized z-score)") +
+  labs(color = "Z score") +
+  scale_x_continuous(breaks=seq(2010,2020,1)) +
+  theme_dark() +
+  theme(axis.text.x = element_text(angle = 90, vjust = .5)) 
+
+ggsave("2.c.2.i.Trends_Landing.pdf", width = 15, height = 9)
+
+# bluefin tuna
+
+tuna_bluefin <- lands_z_me_nonconf_focus[which(lands_z_me_nonconf_focus$Common.Name == 'TUNA, BLUEFIN'),]
+
+p10 <- ggplot(tuna_bluefin, aes(x=Year, y=zscores, color = zscores)) +
+  #geom_line(size = 1)+
+  geom_hline(yintercept=0, size = 2) +
+  stat_smooth(aes(color=..y..), method = "lm", formula = y ~ x, size = 2) +
+  scale_colour_gradient2(low = "#062847", high = "#e03f07", 
+                         midpoint=0) +
+  geom_point(size = 3) +
+  ggtitle("10-Year Trend in Landings by Volume (Bluefin tuna)") +
+  ylim(-3,3) +
+  xlab(" ") + 
+  ylab("Annual Variability in Landings Volume (normalized z-score)") +
+  labs(color = "Z score") +
+  scale_x_continuous(breaks=seq(2010,2020,1)) +
+  theme_dark() +
+  theme(axis.text.x = element_text(angle = 90, vjust = .5)) 
+
+ggsave("2.c.2.j.Trends_Landing.pdf", width = 15, height = 9)
+
+# Jonah crab
+
+crab_jonah <- lands_z_me_nonconf_focus[which(lands_z_me_nonconf_focus$Common.Name == 'CRAB, JONAH'),]
+
+p11 <- ggplot(crab_jonah, aes(x=Year, y=zscores, color = zscores)) +
+  #geom_line(size = 1)+
+  geom_hline(yintercept=0, size = 2) +
+  stat_smooth(aes(color=..y..), method = "lm", formula = y ~ x, size = 2) +
+  scale_colour_gradient2(low = "#062847", high = "#e03f07", 
+                         midpoint=0) +
+  geom_point(size = 3) +
+  ggtitle("10-Year Trend in Landings by Volume (Jonah crab)") +
+  ylim(-3,3) +
+  xlab(" ") + 
+  ylab("Annual Variability in Landings Volume (normalized z-score)") +
+  labs(color = "Z score") +
+  scale_x_continuous(breaks=seq(2010,2020,1)) +
+  theme_dark() +
+  theme(axis.text.x = element_text(angle = 90, vjust = .5)) 
+
+ggsave("2.c.2.k.Trends_Landing.pdf", width = 15, height = 9)
+
+
+# Sea scallop
+
+scallop <- lands_z_me_nonconf_focus[which(lands_z_me_nonconf_focus$Common.Name == 'SCALLOP, SEA'),]
+
+p12 <- ggplot(scallop, aes(x=Year, y=zscores, color = zscores)) +
+  #geom_line(size = 1)+
+  geom_hline(yintercept=0, size = 2) +
+  stat_smooth(aes(color=..y..), method = "lm", formula = y ~ x, size = 2) +
+  scale_colour_gradient2(low = "#062847", high = "#e03f07", 
+                         midpoint=0) +
+  geom_point(size = 3) +
+  ggtitle("10-Year Trend in Landings by Volume (Sea scallop)") +
+  ylim(-3,3) +
+  xlab(" ") + 
+  ylab("Annual Variability in Landings Volume (normalized z-score)") +
+  labs(color = "Z score") +
+  scale_x_continuous(breaks=seq(2010,2020,1)) +
+  theme_dark() +
+  theme(axis.text.x = element_text(angle = 90, vjust = .5)) 
+
+ggsave("2.c.2.l.Trends_Landing.pdf", width = 15, height = 9)
+
+
+# Eastern oyster 
+
+oyster_eastern <- lands_z_me_nonconf_focus[which(lands_z_me_nonconf_focus$Common.Name == 'OYSTER, EASTERN'),]
+
+p13 <- ggplot(oyster_eastern, aes(x=Year, y=zscores, color = zscores)) +
+  #geom_line(size = 1)+
+  geom_hline(yintercept=0, size = 2) +
+  stat_smooth(aes(color=..y..), method = "lm", formula = y ~ x, size = 2) +
+  scale_colour_gradient2(low = "#062847", high = "#e03f07", 
+                         midpoint=0) +
+  geom_point(size = 3) +
+  ggtitle("10-Year Trend in Landings by Volume (Eastern oyster)") +
+  ylim(-3,3) +
+  xlab(" ") + 
+  ylab("Annual Variability in Landings Volume (normalized z-score)") +
+  labs(color = "Z score") +
+  scale_x_continuous(breaks=seq(2010,2020,1)) +
+  theme_dark() +
+  theme(axis.text.x = element_text(angle = 90, vjust = .5)) 
+
+ggsave("2.c.2.m.Trends_Landing.pdf", width = 15, height = 9)
+
+# Ocean quahogs (northern)  
+
+quahog_northern <- lands_z_me_nonconf_focus[which(lands_z_me_nonconf_focus$Common.Name == 'QUAHOG, OCEAN, NORTHERN'),]
+
+p14 <- ggplot(quahog_northern, aes(x=Year, y=zscores, color = zscores)) +
+  #geom_line(size = 1)+
+  geom_hline(yintercept=0, size = 2) +
+  stat_smooth(aes(color=..y..), method = "lm", formula = y ~ x, size = 2) +
+  scale_colour_gradient2(low = "#062847", high = "#e03f07", 
+                         midpoint=0) +
+  geom_point(size = 3) +
+  ggtitle("10-Year Trend in Landings by Volume (Northern Quahog)") +
+  ylim(-3,3) +
+  xlab(" ") + 
+  ylab("Annual Variability in Landings Volume (normalized z-score)") +
+  labs(color = "Z score") +
+  scale_x_continuous(breaks=seq(2010,2020,1)) +
+  theme_dark() +
+  theme(axis.text.x = element_text(angle = 90, vjust = .5)) 
+
+ggsave("2.c.2.n.Trends_Landing.pdf", width = 15, height = 9)
+
+# Seaweed 
+
+seaweed <- lands_z_me_nonconf_focus[which(lands_z_me_nonconf_focus$Common.Name == 'SEAWEED'),]
+
+p14 <- ggplot(seaweed, aes(x=Year, y=zscores, color = zscores)) +
+  #geom_line(size = 1)+
+  geom_hline(yintercept=0, size = 2) +
+  stat_smooth(aes(color=..y..), method = "lm", formula = y ~ x, size = 2) +
+  scale_colour_gradient2(low = "#062847", high = "#e03f07", 
+                         midpoint=0) +
+  geom_point(size = 3) +
+  ggtitle("10-Year Trend in Landings by Volume (Seaweed)") +
+  ylim(-3,3) +
+  xlab(" ") + 
+  ylab("Annual Variability in Landings Volume (normalized z-score)") +
+  labs(color = "Z score") +
+  scale_x_continuous(breaks=seq(2010,2020,1)) +
+  theme_dark() +
+  theme(axis.text.x = element_text(angle = 90, vjust = .5)) 
+
+ggsave("2.c.2.o.Trends_Landing.pdf", width = 15, height = 9)
+
+
+# Menhadens 
+
+menhadens <- lands_z_me_nonconf_focus[which(lands_z_me_nonconf_focus$Common.Name == 'MENHADENS'),]
+
+p15 <- ggplot(menhadens, aes(x=Year, y=zscores, color = zscores)) +
+  #geom_line(size = 1)+
+  geom_hline(yintercept=0, size = 2) +
+  stat_smooth(aes(color=..y..), method = "lm", formula = y ~ x, size = 2) +
+  scale_colour_gradient2(low = "#062847", high = "#e03f07", 
+                         midpoint=0) +
+  geom_point(size = 3) +
+  ggtitle("10-Year Trend in Landings by Volume (Menhadens)") +
+  ylim(-3,3) +
+  xlab(" ") + 
+  ylab("Annual Variability in Landings Volume (normalized z-score)") +
+  labs(color = "Z score") +
+  scale_x_continuous(breaks=seq(2010,2020,1)) +
+  theme_dark() +
+  theme(axis.text.x = element_text(angle = 90, vjust = .5)) 
+
+ggsave("2.c.2.p.Trends_Landing.pdf", width = 15, height = 9)
+
+
