@@ -551,7 +551,7 @@ for(i in 1:nrow(me_lic_2016_2021)) {
      me_lic_2016_2021$License.Type[i] == 'PSUS' |
      me_lic_2016_2021$License.Type[i] == 'PSDI' |
      me_lic_2016_2021$License.Type[i] == 'PSD'
-  ) me_lic_2016_2021$Lic_Category[i] <- 'Scallop (including tenders)'
+  ) me_lic_2016_2021$Lic_Category[i] <- 'Scallop'
   
 }
 
@@ -564,7 +564,7 @@ for(i in 1:nrow(me_lic_2016_2021)) {
      me_lic_2016_2021$License.Type[i] == 'PSUH' |
      me_lic_2016_2021$License.Type[i] == 'PSUB' |
      me_lic_2016_2021$License.Type[i] == 'PSSU' 
-  ) me_lic_2016_2021$Lic_Category[i] <- 'Green Urchin (including tenders)'
+  ) me_lic_2016_2021$Lic_Category[i] <- 'Green Urchin'
   
 }
 
