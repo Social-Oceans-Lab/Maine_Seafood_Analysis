@@ -339,7 +339,8 @@ me_zs_focus <- ggplot(lands_z_me_nonconf_focus, aes(factor(Year), Common.Name, f
 ggplot(lands_z_me_nonconf_focus, aes(x=Year, y=zscores, color = zscores)) +
   #geom_line(size = 1)+
   geom_hline(yintercept=0, size = 2) +
-  stat_smooth(aes(color=..y..), formula = y ~ s(x, k = 7), method = "gam", se = FALSE) +
+  #stat_smooth(aes(color=..y..), formula = y ~ s(x, k = 7), method = "gam", se = FALSE) +
+  stat_smooth(aes(color=..y..), method = "lm", formula = y ~ x, size = 1) +
   scale_colour_gradient2(low = "#062847", high = "#e03f07", 
                          midpoint=0) +
   geom_point(size = 3) +
