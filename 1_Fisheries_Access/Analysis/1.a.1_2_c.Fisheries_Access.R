@@ -778,7 +778,19 @@ plot_age <-
   ggarrange(p1, p2, p3, p4, labels = c("A", "B", "C", "D"),
             common.legend = TRUE, legend = "right")
 
-ggsave("1.c.Fisheries_Access.pdf", width = 15, height = 9)
+ggsave("1.c.1.Fisheries_Access.pdf", width = 15, height = 9)
+
+
+# Age by fishery category 
+
+p5 <- ggplot(me_lic_2021, aes(x=as.factor(Lic_Category), y=Age)) + 
+  ggtitle("Age of License Holders by Fishery Category (2021)") +
+  geom_violin(draw_quantiles = c(0.25, 0.5, 0.75)) +
+  xlab("Fishery") +
+  theme_dark() +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1)) 
+
+ggsave("1.c.2.Fisheries_Access.pdf", width = 15, height = 9)
 
 
 ### Write data file
