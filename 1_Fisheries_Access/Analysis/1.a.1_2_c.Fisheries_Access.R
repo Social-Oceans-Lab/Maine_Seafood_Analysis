@@ -729,14 +729,14 @@ lic_count_category <- ggplot(me_lic_2021, aes(fill=Region, x= Lic_Category, y= L
   theme_classic() +
   ylab("License Count") +
   xlab(" ") +
-  ggtitle("Number of Licenses by Region (2021)") +
+  ggtitle("Number of Licenses by Fishery / Region (2021)") +
   labs(caption="Note: Plot does not include non-residential or recreational license categories.")+
   scale_fill_manual(values = color_region) +  
   scale_y_continuous(labels = scales::comma) +
   theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1, size = 8)) +
   geom_bar(stat="identity")
 
-ggsave("1.a.3.Fisheries_Access.pdf", width = 15, height = 9)
+ggsave("1.a.2.Fisheries_Access.pdf", width = 15, height = 9)
 
 
 ### Age Distribution
