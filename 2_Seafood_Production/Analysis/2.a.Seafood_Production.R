@@ -39,6 +39,8 @@ production <- production %>%
 #keeping 2010-2020
 production <- filter(production, Year >= 2010)
 
+write.csv(production, "production.csv")
+
 ###
 
 bck_color <- "#000000"
