@@ -659,7 +659,7 @@ me_lic_2016_2021 <- me_lic_2016_2021[which(me_lic_2016_2021$License.Type != 'VH'
 
 
 
-### Create table of the number of license per year
+### Create table of the age of per year
 
 Y21 <- me_lic_2016_2021[which(me_lic_2016_2021$License.Year == 2021), ]
 Y21 <- Y21 %>% count(License.Year, License.Name, sort = TRUE)
