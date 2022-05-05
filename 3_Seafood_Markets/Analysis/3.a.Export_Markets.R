@@ -508,6 +508,26 @@ exportcountries_no_world <- head(exportcountries_no_world,10)
 t0 <- ggplot(worldsub_change, aes(x=Year, y=ExportValue/1000000, fill=Commodity)) + 
   geom_bar(position="stack", stat="identity") + xlab("Year") + ylab("Dollars (million)") + 
   ggtitle("03 Fish, Crustaceans & Aquatic Invertebrates") +
+  #scale_x_continuous(name="Year", breaks=c(2010:2021)) +
+  scale_fill_manual(values="#5f96c9") +
+  theme_minimal() +
+  geom_hline(yintercept=0) +
+  theme(legend.position="none") +
+  theme(axis.text.x = element_text(angle = 90)) +
+  theme(axis.line = element_line(colour = "black", 
+                                 size = 1, linetype = "solid")) 
+
+ggsave("3.c.seafood_markets.pdf", width = 15, height = 6)
+
+# 0301 Fish, Live
+exportcountries_no_world <- exportcountries[which(exportcountries$Country != 'World Total'),]
+exportcountries_no_world <- exportcountries_no_world[which(exportcountries_no_world$Commodity == '0301 Fish, Live' & exportcountries_no_world$Year == 2021) ,]
+exportcountries_no_world <- na.omit(exportcountries_no_world[order(-exportcountries_no_world$ExportValue),])
+exportcountries_no_world <- head(exportcountries_no_world,10)
+
+t1 <- ggplot(worldsub_change, aes(x=Year, y=ExportValue/1000000, fill=Commodity)) + 
+  geom_bar(position="stack", stat="identity") + xlab("Year") + ylab("Dollars (million)") + 
+  ggtitle("0301 Fish, Live") +
   scale_x_continuous(name="Year", breaks=c(2010:2021)) +
   scale_fill_manual(values="#5f96c9") +
   theme_minimal() +
@@ -516,6 +536,8 @@ t0 <- ggplot(worldsub_change, aes(x=Year, y=ExportValue/1000000, fill=Commodity)
   theme(axis.text.x = element_text(angle = 90)) +
   theme(axis.line = element_line(colour = "black", 
                                  size = 1, linetype = "solid")) 
+
+ggsave("3.c.1.seafood_markets.pdf", width = 15, height = 6)
 
 
 #Stopped coding here, but left Seafood Production code below in case it can be adapted for the following
