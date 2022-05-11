@@ -390,7 +390,7 @@ blob_plot_me <- ggplot(blobs_colrs, aes(xmin = x_min, xmax = x_max,
   geom_segment(aes(x = 0, y = 0, xend = 0, yend = 1)) +                                           #adding vertical line at 0
   scale_fill_manual(values = colrs_new$hex[c(2, 3, 1, 4)], 
                     breaks = colrs_new$outlk[c(2, 3, 1, 4)]) +                                    #coloring, based on colrs_new. Difficult to get the order right... hence the ([()]) nonsense. Not gonna pretend I understand it.                             
-  geom_point(data = me_zr, aes(zscores, rsquared_z1020, 
+  geom_point(data = me_zr, aes(zscores, rsquared_z1020,
                                size = prop_val), inherit.aes = FALSE) +    #scatterplot here
   geom_text_repel(data=me_zr %>% filter(prop_val>.5), # Filter data first
                   aes(zscores, rsquared_z1020, label=Common.Name, xmin = NULL, xmax = NULL, ymin = NULL, ymax = NULL, fill = NULL), size= 5, nudge_y = .05) +

@@ -65,19 +65,17 @@ exportcountries$ExportValue <- as.numeric(gsub(",","",exportcountries$ExportValu
 
 #keeping 2011-2020
 
-exportcountries <- filter(exportcountries, Year <= 2020 && Year > 2010)
+exportcountries <- exportcountries[which(exportcountries$Year >= 2010), ]
+
 
 ### Create plots 
-
-#e37a55 - Orange
-#233749 - Blue
 
 cbbPalette <- c("#7abfff", "#5f96c9", "#476f94", "#233749", "#e37a55")
 
 # World exports by commodity group 
 
 worldsub_all <- exportcountries[which(exportcountries$Country == 'World Total'),]
-worldsub <- worldsub[which(worldsub_all$Commodity != '03 Fish, Crustaceans & Aquatic Invertebrates'),]
+worldsub <- worldsub_all[which(worldsub_all$Commodity != '03 Fish, Crustaceans & Aquatic Invertebrates'),]
 
 ## Stacked bar plot of world totals stacking 4-digit and 6-digit commodities 
 
@@ -505,9 +503,9 @@ exportcountries_no_world <- exportcountries_no_world[which(exportcountries_no_wo
 exportcountries_no_world <- na.omit(exportcountries_no_world[order(-exportcountries_no_world$ExportValue),])
 exportcountries_no_world <- head(exportcountries_no_world,10)
 
-t0 <- ggplot(worldsub_change, aes(x=Year, y=ExportValue/1000000, fill=Commodity)) + 
+t0 <- ggplot(exportcountries_no_world, aes(x=Country, y=ExportValue/1000000, fill=Commodity)) + 
   geom_bar(position="stack", stat="identity") + xlab("Year") + ylab("Dollars (million)") + 
-  ggtitle("03 Fish, Crustaceans & Aquatic Invertebrates") +
+  ggtitle("Top-10 Export Countries (03 Fish, Crustaceans & Aquatic Invertebrates)") +
   #scale_x_continuous(name="Year", breaks=c(2010:2021)) +
   scale_fill_manual(values="#5f96c9") +
   theme_minimal() +
@@ -525,10 +523,10 @@ exportcountries_no_world <- exportcountries_no_world[which(exportcountries_no_wo
 exportcountries_no_world <- na.omit(exportcountries_no_world[order(-exportcountries_no_world$ExportValue),])
 exportcountries_no_world <- head(exportcountries_no_world,10)
 
-t1 <- ggplot(worldsub_change, aes(x=Year, y=ExportValue/1000000, fill=Commodity)) + 
+t1 <- ggplot(exportcountries_no_world, aes(x=Country, y=ExportValue/1000000, fill=Commodity)) + 
   geom_bar(position="stack", stat="identity") + xlab("Year") + ylab("Dollars (million)") + 
-  ggtitle("0301 Fish, Live") +
-  scale_x_continuous(name="Year", breaks=c(2010:2021)) +
+  ggtitle("Top-10 Export Countries (0301 Fish, Live)") +
+  #scale_x_continuous(name="Year", breaks=c(2010:2021)) +
   scale_fill_manual(values="#5f96c9") +
   theme_minimal() +
   geom_hline(yintercept=0) +
@@ -540,6 +538,212 @@ t1 <- ggplot(worldsub_change, aes(x=Year, y=ExportValue/1000000, fill=Commodity)
 ggsave("3.c.1.seafood_markets.pdf", width = 15, height = 6)
 
 
+# 0302 Fish, Fresh Or Chilled (no Fillets Or Other Meat)
+exportcountries_no_world <- exportcountries[which(exportcountries$Country != 'World Total'),]
+exportcountries_no_world <- exportcountries_no_world[which(exportcountries_no_world$Commodity == '0302 Fish, Fresh Or Chilled (no Fillets Or Other Meat)' & exportcountries_no_world$Year == 2021) ,]
+exportcountries_no_world <- na.omit(exportcountries_no_world[order(-exportcountries_no_world$ExportValue),])
+exportcountries_no_world <- head(exportcountries_no_world,10)
+
+t2 <- ggplot(exportcountries_no_world, aes(x=Country, y=ExportValue/1000000, fill=Commodity)) + 
+  geom_bar(position="stack", stat="identity") + xlab("Year") + ylab("Dollars (million)") + 
+  ggtitle("Top-10 Export Countries (0302 Fish, Fresh Or Chilled (no Fillets Or Other Meat))") +
+  #scale_x_continuous(name="Year", breaks=c(2010:2021)) +
+  scale_fill_manual(values="#5f96c9") +
+  theme_minimal() +
+  geom_hline(yintercept=0) +
+  theme(legend.position="none") +
+  theme(axis.text.x = element_text(angle = 90)) +
+  theme(axis.line = element_line(colour = "black", 
+                                 size = 1, linetype = "solid")) 
+
+ggsave("3.c.2.seafood_markets.pdf", width = 15, height = 6)
+
+
+# 0303 Fish, Frozen (no Fish Fillets Or Other Fish Meat)
+exportcountries_no_world <- exportcountries[which(exportcountries$Country != 'World Total'),]
+exportcountries_no_world <- exportcountries_no_world[which(exportcountries_no_world$Commodity == '0303 Fish, Frozen (no Fish Fillets Or Other Fish Meat)' & exportcountries_no_world$Year == 2021) ,]
+exportcountries_no_world <- na.omit(exportcountries_no_world[order(-exportcountries_no_world$ExportValue),])
+exportcountries_no_world <- head(exportcountries_no_world,10)
+
+t3 <- ggplot(exportcountries_no_world, aes(x=Country, y=ExportValue/1000000, fill=Commodity)) + 
+  geom_bar(position="stack", stat="identity") + xlab("Year") + ylab("Dollars (million)") + 
+  ggtitle("Top-10 Export Countries (0303 Fish, Frozen (no Fish Fillets Or Other Fish Meat))") +
+  #scale_x_continuous(name="Year", breaks=c(2010:2021)) +
+  scale_fill_manual(values="#5f96c9") +
+  theme_minimal() +
+  geom_hline(yintercept=0) +
+  theme(legend.position="none") +
+  theme(axis.text.x = element_text(angle = 90)) +
+  theme(axis.line = element_line(colour = "black", 
+                                 size = 1, linetype = "solid")) 
+
+ggsave("3.c.3.seafood_markets.pdf", width = 15, height = 6)
+
+
+# 0304 Fish Fillets & Oth Fish Meat, Fresh, Chill Or Froz
+exportcountries_no_world <- exportcountries[which(exportcountries$Country != 'World Total'),]
+exportcountries_no_world <- exportcountries_no_world[which(exportcountries_no_world$Commodity == '0304 Fish Fillets & Oth Fish Meat, Fresh, Chill Or Froz' & exportcountries_no_world$Year == 2021) ,]
+exportcountries_no_world <- na.omit(exportcountries_no_world[order(-exportcountries_no_world$ExportValue),])
+exportcountries_no_world <- head(exportcountries_no_world,10)
+
+t4 <- ggplot(exportcountries_no_world, aes(x=Country, y=ExportValue/1000000, fill=Commodity)) + 
+  geom_bar(position="stack", stat="identity") + xlab("Year") + ylab("Dollars (million)") + 
+  ggtitle("Top-10 Export Countries (0304 Fish Fillets & Oth Fish Meat, Fresh, Chill Or Froz)") +
+  #scale_x_continuous(name="Year", breaks=c(2010:2021)) +
+  scale_fill_manual(values="#5f96c9") +
+  theme_minimal() +
+  geom_hline(yintercept=0) +
+  theme(legend.position="none") +
+  theme(axis.text.x = element_text(angle = 90)) +
+  theme(axis.line = element_line(colour = "black", 
+                                 size = 1, linetype = "solid")) 
+
+ggsave("3.c.4.seafood_markets.pdf", width = 15, height = 6)
+
+# 0305 Fish, Dried, Salted Or In Brine; Smoked Fish
+exportcountries_no_world <- exportcountries[which(exportcountries$Country != 'World Total'),]
+exportcountries_no_world <- exportcountries_no_world[which(exportcountries_no_world$Commodity == '0305 Fish, Dried, Salted Or In Brine; Smoked Fish' & exportcountries_no_world$Year == 2021) ,]
+exportcountries_no_world <- na.omit(exportcountries_no_world[order(-exportcountries_no_world$ExportValue),])
+exportcountries_no_world <- head(exportcountries_no_world,10)
+
+t5 <- ggplot(exportcountries_no_world, aes(x=Country, y=ExportValue/1000000, fill=Commodity)) + 
+  geom_bar(position="stack", stat="identity") + xlab("Year") + ylab("Dollars (million)") + 
+  ggtitle("Top-10 Export Countries (0305 Fish, Dried, Salted Or In Brine; Smoked Fish)") +
+  #scale_x_continuous(name="Year", breaks=c(2010:2021)) +
+  scale_fill_manual(values="#5f96c9") +
+  theme_minimal() +
+  geom_hline(yintercept=0) +
+  theme(legend.position="none") +
+  theme(axis.text.x = element_text(angle = 90)) +
+  theme(axis.line = element_line(colour = "black", 
+                                 size = 1, linetype = "solid")) 
+
+ggsave("3.c.5.seafood_markets.pdf", width = 15, height = 6)
+
+# 0306 Crustaceans
+exportcountries_no_world <- exportcountries[which(exportcountries$Country != 'World Total'),]
+exportcountries_no_world <- exportcountries_no_world[which(exportcountries_no_world$Commodity == '0306 Crustaceans' & exportcountries_no_world$Year == 2021) ,]
+exportcountries_no_world <- na.omit(exportcountries_no_world[order(-exportcountries_no_world$ExportValue),])
+exportcountries_no_world <- head(exportcountries_no_world,10)
+
+t6 <- ggplot(exportcountries_no_world, aes(x=Country, y=ExportValue/1000000, fill=Commodity)) + 
+  geom_bar(position="stack", stat="identity") + xlab("Year") + ylab("Dollars (million)") + 
+  ggtitle("Top-10 Export Countries (0306 Crustaceans)") +
+  #scale_x_continuous(name="Year", breaks=c(2010:2021)) +
+  scale_fill_manual(values="#5f96c9") +
+  theme_minimal() +
+  geom_hline(yintercept=0) +
+  theme(legend.position="none") +
+  theme(axis.text.x = element_text(angle = 90)) +
+  theme(axis.line = element_line(colour = "black", 
+                                 size = 1, linetype = "solid")) 
+
+ggsave("3.c.6.seafood_markets.pdf", width = 15, height = 6)
+
+# 0307 Molluscs
+exportcountries_no_world <- exportcountries[which(exportcountries$Country != 'World Total'),]
+exportcountries_no_world <- exportcountries_no_world[which(exportcountries_no_world$Commodity == '0307 Molluscs' & exportcountries_no_world$Year == 2021) ,]
+exportcountries_no_world <- na.omit(exportcountries_no_world[order(-exportcountries_no_world$ExportValue),])
+exportcountries_no_world <- head(exportcountries_no_world,10)
+
+t7 <- ggplot(exportcountries_no_world, aes(x=Country, y=ExportValue/1000000, fill=Commodity)) + 
+  geom_bar(position="stack", stat="identity") + xlab("Year") + ylab("Dollars (million)") + 
+  ggtitle("Top-10 Export Countries (0307 Molluscs)") +
+  #scale_x_continuous(name="Year", breaks=c(2010:2021)) +
+  scale_fill_manual(values="#5f96c9") +
+  theme_minimal() +
+  geom_hline(yintercept=0) +
+  theme(legend.position="none") +
+  theme(axis.text.x = element_text(angle = 90)) +
+  theme(axis.line = element_line(colour = "black", 
+                                 size = 1, linetype = "solid")) 
+
+ggsave("3.c.7.seafood_markets.pdf", width = 15, height = 6)
+
+# 0308 Aquatic Invertebrates, Nesoi
+exportcountries_no_world <- exportcountries[which(exportcountries$Country != 'World Total'),]
+exportcountries_no_world <- exportcountries_no_world[which(exportcountries_no_world$Commodity == '0308 Aquatic Invertebrates, Nesoi' & exportcountries_no_world$Year == 2021) ,]
+exportcountries_no_world <- na.omit(exportcountries_no_world[order(-exportcountries_no_world$ExportValue),])
+exportcountries_no_world <- head(exportcountries_no_world,10)
+
+t8 <- ggplot(exportcountries_no_world, aes(x=Country, y=ExportValue/1000000, fill=Commodity)) + 
+  geom_bar(position="stack", stat="identity") + xlab("Year") + ylab("Dollars (million)") + 
+  ggtitle("Top-10 Export Countries (0308 Aquatic Invertebrates, Nesoi)") +
+  #scale_x_continuous(name="Year", breaks=c(2010:2021)) +
+  scale_fill_manual(values="#5f96c9") +
+  theme_minimal() +
+  geom_hline(yintercept=0) +
+  theme(legend.position="none") +
+  theme(axis.text.x = element_text(angle = 90)) +
+  theme(axis.line = element_line(colour = "black", 
+                                 size = 1, linetype = "solid")) 
+
+ggsave("3.c.8.seafood_markets.pdf", width = 15, height = 6)
+
+
+# 121221 Seaweeds And Other Algae Fit For Human Consumption
+exportcountries_no_world <- exportcountries[which(exportcountries$Country != 'World Total'),]
+exportcountries_no_world <- exportcountries_no_world[which(exportcountries_no_world$Commodity == '121221 Seaweeds And Other Algae Fit For Human Consumption' & exportcountries_no_world$Year == 2021) ,]
+exportcountries_no_world <- na.omit(exportcountries_no_world[order(-exportcountries_no_world$ExportValue),])
+exportcountries_no_world <- head(exportcountries_no_world,10)
+
+t9 <- ggplot(exportcountries_no_world, aes(x=Country, y=ExportValue/1000000, fill=Commodity)) + 
+  geom_bar(position="stack", stat="identity") + xlab("Year") + ylab("Dollars (million)") + 
+  ggtitle("Top-10 Export Countries (121221 Seaweeds And Other Algae Fit For Human Consumption)") +
+  #scale_x_continuous(name="Year", breaks=c(2010:2021)) +
+  scale_fill_manual(values="#5f96c9") +
+  theme_minimal() +
+  geom_hline(yintercept=0) +
+  theme(legend.position="none") +
+  theme(axis.text.x = element_text(angle = 90)) +
+  theme(axis.line = element_line(colour = "black", 
+                                 size = 1, linetype = "solid")) 
+
+ggsave("3.c.9.seafood_markets.pdf", width = 15, height = 6)
+
+
+# 121229 Seaweeds And Other Algae, Nesoi
+exportcountries_no_world <- exportcountries[which(exportcountries$Country != 'World Total'),]
+exportcountries_no_world <- exportcountries_no_world[which(exportcountries_no_world$Commodity == '121229 Seaweeds And Other Algae, Nesoi' & exportcountries_no_world$Year == 2021) ,]
+exportcountries_no_world <- na.omit(exportcountries_no_world[order(-exportcountries_no_world$ExportValue),])
+exportcountries_no_world <- head(exportcountries_no_world,10)
+
+t10 <- ggplot(exportcountries_no_world, aes(x=Country, y=ExportValue/1000000, fill=Commodity)) + 
+  geom_bar(position="stack", stat="identity") + xlab("Year") + ylab("Dollars (million)") + 
+  ggtitle("Top-10 Export Countries (121229 Seaweeds And Other Algae, Nesoi)") +
+  #scale_x_continuous(name="Year", breaks=c(2010:2021)) +
+  scale_fill_manual(values="#5f96c9") +
+  theme_minimal() +
+  geom_hline(yintercept=0) +
+  theme(legend.position="none") +
+  theme(axis.text.x = element_text(angle = 90)) +
+  theme(axis.line = element_line(colour = "black", 
+                                 size = 1, linetype = "solid")) 
+
+ggsave("3.c.10.seafood_markets.pdf", width = 15, height = 6)
+
+# 1605 Crustaceans, Molluscs Etc. Prepared Or Preserved
+exportcountries_no_world <- exportcountries[which(exportcountries$Country != 'World Total'),]
+exportcountries_no_world <- exportcountries_no_world[which(exportcountries_no_world$Commodity == '1605 Crustaceans, Molluscs Etc. Prepared Or Preserved' & exportcountries_no_world$Year == 2021) ,]
+exportcountries_no_world <- na.omit(exportcountries_no_world[order(-exportcountries_no_world$ExportValue),])
+exportcountries_no_world <- head(exportcountries_no_world,10)
+
+t11 <- ggplot(exportcountries_no_world, aes(x=Country, y=ExportValue/1000000, fill=Commodity)) + 
+  geom_bar(position="stack", stat="identity") + xlab("Year") + ylab("Dollars (million)") + 
+  ggtitle("Top-10 Export Countries (1605 Crustaceans, Molluscs Etc. Prepared Or Preserved)") +
+  #scale_x_continuous(name="Year", breaks=c(2010:2021)) +
+  scale_fill_manual(values="#5f96c9") +
+  theme_minimal() +
+  geom_hline(yintercept=0) +
+  theme(legend.position="none") +
+  theme(axis.text.x = element_text(angle = 90)) +
+  theme(axis.line = element_line(colour = "black", 
+                                 size = 1, linetype = "solid")) 
+
+ggsave("3.c.11.seafood_markets.pdf", width = 15, height = 6)
+
+
+
 #Stopped coding here, but left Seafood Production code below in case it can be adapted for the following
 
 ### Commodity Plots (focusing on latest ten year range (Yr 1...Yr10))
@@ -548,67 +752,11 @@ Done # (#12) Plots 2 to 14 - one line graph for each commodity world totals by 4
 Done # (#12) Summary Stats - Percentage changes from Yr1 to Yr10 (% change by mean - total exports) (for each HS code)
 
 ### Countries Plots 
-# Plots 15 to 23 - side by side Yr1 and Yr10 plots for each of the 12 4-digit and 6-digit commodities showing the top ten export destination countries + "other countries" as an aggregate of remaining country exports
+Done# Plots 15 to 23 - side by side Yr1 and Yr10 plots for each of the 12 4-digit and 6-digit commodities showing the top ten export destination countries + "other countries" as an aggregate of remaining country exports
 # Note - Canada will be on a different scale for some commodities and we can discuss whether to separate it, or show it on a different scale if possible
 # Summary Stats - Percentage shares of countries in each of the plots 15 to 23 **or changes from 1st 3 or 5 years versus last 3 or 5 years (more stable and more data to work with)
 
-### Other topics
-# In future the commodity labels can change and/or product gets re-classified and we will have to watch for this in future
-# Could the landings and climate vulnerability data be used together with the export data to say more about future expectations? Perhaps only addressed qualitatively in the report
-
-# I can get the same csv file for other states, should we do this to make comparisons?
-# There is price information for air-freight only (i.e. high value exports) and we could plot some of these
 
 
-
-
-
-worldsub$Commodity <- factor(worldsub$Commodity, levels = comlabels)
-
-p1 <- ggplot(worldsub, aes(x=Year, y=Exports($)/1000000, fill=Commodity)) + 
-  geom_bar(position="stack", stat="identity") + xlab("Year") + ylab("Exports ($millions)") + 
-  ggtitle("MENHADENS LANDINGS") +
-  scale_x_continuous(name="Year", breaks=c(2010:2020)) +
-  scale_fill_manual(values=cbbPalette) +
-  theme_minimal() +
-  theme(axis.text.x = element_text(angle = 90)) +
-  theme(axis.line = element_line(colour = "black", 
-                                 size = 1, linetype = "solid")) 
-
-
-
-
-
-
-
-
-menhaden <- production[which(production$Common.Name == 'MENHADENS'),]
-menhaden$State <- factor(menhaden$State, levels = c("CONNECTICUT","RHODE ISLAND", "MASSACHUSETTS","NEW HAMPSHIRE","MAINE"))
-
-p1 <- ggplot(menhaden, aes(x=Year, y=Pounds/1000000, fill=State)) + 
-  geom_bar(position="stack", stat="identity") + xlab("Year") + ylab("Lbs (millions)") + 
-  ggtitle("MENHADENS LANDINGS") +
-  scale_x_continuous(name="Year", breaks=c(2010:2020)) +
-  scale_fill_manual(values=cbbPalette) +
-  theme_minimal() +
-  theme(axis.text.x = element_text(angle = 90)) +
-  theme(axis.line = element_line(colour = "black", 
-                                 size = 1, linetype = "solid")) 
-
-
-p2 <- ggplot(menhaden, aes(x=Year, y=Dollars/1000000, fill=State)) + 
-  geom_bar(position="stack", stat="identity") + xlab("Year") + ylab("Dollars (millions)") + 
-  ggtitle("MENHADENS VALUE") +
-  scale_x_continuous(name="Year", breaks=c(2010:2020)) +
-  scale_fill_manual(values=cbbPalette) +
-  theme_minimal() +
-  theme(axis.text.x = element_text(angle = 90)) +
-  theme(axis.line = element_line(colour = "black", 
-                                 size = 1, linetype = "solid")) 
-
-plot_menhadens <- 
-  ggarrange(p1, p2, labels = c("A", "B"),
-            common.legend = TRUE, legend = "right")
-ggsave("2.d.5.plot_menhadens.pdf", width = 15, height = 6)
 
 
