@@ -96,6 +96,7 @@ ggsave("3.a.seafood_markets.pdf", width = 15, height = 6)
 p1 <- ggplot(worldsub[which(worldsub$Commodity == '0301 Fish, Live'),], aes(x=Year, y=ExportValue/1000000, fill=Commodity)) + 
   geom_bar(position="stack", stat="identity") + xlab("Year") + ylab("Dollars (million)") + 
   ggtitle("Export of 0301 Fish, Live") +
+  geom_text(aes(label = round(ExportValue/1000000, 2)), vjust = -0.2)+
   scale_x_continuous(name="Year", breaks=c(2010:2021)) +
   scale_fill_manual(values="#5f96c9") +
   theme_minimal() +
@@ -109,6 +110,7 @@ ggsave("3.a.1.seafood_markets.pdf", width = 15, height = 6)
 p2 <- ggplot(worldsub[which(worldsub$Commodity == '0302 Fish, Fresh Or Chilled (no Fillets Or Other Meat)'),], aes(x=Year, y=ExportValue/1000000, fill=Commodity)) + 
   geom_bar(position="stack", stat="identity") + xlab("Year") + ylab("Dollars (million)") + 
   ggtitle("Export of 0302 Fish, Fresh Or Chilled (no Fillets Or Other Meat)") +
+  geom_text(aes(label = round(ExportValue/1000000, 2)), vjust = -0.2)+
   scale_x_continuous(name="Year", breaks=c(2010:2021)) +
   scale_fill_manual(values="#5f96c9") +
   theme_minimal() +
@@ -122,6 +124,7 @@ ggsave("3.a.2.seafood_markets.pdf", width = 15, height = 6)
 p3 <- ggplot(worldsub[which(worldsub$Commodity == '0303 Fish, Frozen (no Fish Fillets Or Other Fish Meat)'),], aes(x=Year, y=ExportValue/1000000, fill=Commodity)) + 
   geom_bar(position="stack", stat="identity") + xlab("Year") + ylab("Dollars (million)") + 
   ggtitle("Export of 0303 Fish, Frozen (no Fish Fillets Or Other Fish Meat)") +
+  geom_text(aes(label = round(ExportValue/1000000, 2)), vjust = -0.2)+
   scale_x_continuous(name="Year", breaks=c(2010:2021)) +
   scale_fill_manual(values="#5f96c9") +
   theme_minimal() +
@@ -135,6 +138,7 @@ ggsave("3.a.3.seafood_markets.pdf", width = 15, height = 6)
 p4 <- ggplot(worldsub[which(worldsub$Commodity == '0304 Fish Fillets & Oth Fish Meat, Fresh, Chill Or Froz'),], aes(x=Year, y=ExportValue/1000000, fill=Commodity)) + 
   geom_bar(position="stack", stat="identity") + xlab("Year") + ylab("Dollars (million)") + 
   ggtitle("Export of 0304 Fish Fillets & Oth Fish Meat, Fresh, Chill Or Froz") +
+  geom_text(aes(label = round(ExportValue/1000000, 2)), vjust = -0.2)+
   scale_x_continuous(name="Year", breaks=c(2010:2021)) +
   scale_fill_manual(values="#5f96c9") +
   theme_minimal() +
@@ -148,6 +152,7 @@ ggsave("3.a.4.seafood_markets.pdf", width = 15, height = 6)
 p5 <- ggplot(worldsub[which(worldsub$Commodity == '0305 Fish, Dried, Salted Or In Brine; Smoked Fish'),], aes(x=Year, y=ExportValue/1000000, fill=Commodity)) + 
   geom_bar(position="stack", stat="identity") + xlab("Year") + ylab("Dollars (million)") + 
   ggtitle("Export of 0305 Fish, Dried, Salted Or In Brine; Smoked Fish") +
+  geom_text(aes(label = round(ExportValue/1000000, 2)), vjust = -0.2)+
   scale_x_continuous(name="Year", breaks=c(2010:2021)) +
   scale_fill_manual(values="#5f96c9") +
   theme_minimal() +
@@ -161,6 +166,7 @@ ggsave("3.a.5.seafood_markets.pdf", width = 15, height = 6)
 p6 <- ggplot(worldsub[which(worldsub$Commodity == '0306 Crustaceans'),], aes(x=Year, y=ExportValue/1000000, fill=Commodity)) + 
   geom_bar(position="stack", stat="identity") + xlab("Year") + ylab("Dollars (million)") + 
   ggtitle("Export of 0306 Crustaceans") +
+  geom_text(aes(label = round(ExportValue/1000000, 2)), vjust = -0.2)+
   scale_x_continuous(name="Year", breaks=c(2010:2021)) +
   scale_fill_manual(values="#5f96c9") +
   theme_minimal() +
@@ -174,6 +180,7 @@ ggsave("3.a.6.seafood_markets.pdf", width = 15, height = 6)
 p7 <- ggplot(worldsub[which(worldsub$Commodity == '0307 Molluscs'),], aes(x=Year, y=ExportValue/1000000, fill=Commodity)) + 
   geom_bar(position="stack", stat="identity") + xlab("Year") + ylab("Dollars (million)") + 
   ggtitle("Export of 0307 Molluscs") +
+  geom_text(aes(label = round(ExportValue/1000000, 2)), vjust = -0.2)+
   scale_x_continuous(name="Year", breaks=c(2010:2021)) +
   scale_fill_manual(values="#5f96c9") +
   theme_minimal() +
@@ -187,6 +194,7 @@ ggsave("3.a.7.seafood_markets.pdf", width = 15, height = 6)
 p8 <- ggplot(worldsub[which(worldsub$Commodity == '0308 Aquatic Invertebrates, Nesoi'),], aes(x=Year, y=ExportValue/1000000, fill=Commodity)) + 
   geom_bar(position="stack", stat="identity") + xlab("Year") + ylab("Dollars (million)") + 
   ggtitle("Export of 0308 Aquatic Invertebrates, Nesoi") +
+  geom_text(aes(label = round(ExportValue/1000000, 2)), vjust = -0.2)+
   scale_x_continuous(name="Year", breaks=c(2010:2021)) +
   scale_fill_manual(values="#5f96c9") +
   theme_minimal() +
@@ -202,6 +210,7 @@ ggsave("3.a.8.seafood_markets.pdf", width = 15, height = 6)
 p9 <- ggplot(worldsub[which(worldsub$Commodity == '121221 Seaweeds And Other Algae Fit For Human Consumption'),], aes(x=Year, y=ExportValue/1000000, fill=Commodity)) + 
   geom_bar(position="stack", stat="identity") + xlab("Year") + ylab("Dollars (million)") + 
   ggtitle("Export of 121221 Seaweeds And Other Algae Fit For Human Consumption") +
+  geom_text(aes(label = round(ExportValue/1000000, 2)), vjust = -0.2)+
   scale_x_continuous(name="Year", breaks=c(2010:2021)) +
   scale_fill_manual(values="#5f96c9") +
   theme_minimal() +
@@ -216,6 +225,7 @@ ggsave("3.a.9.seafood_markets.pdf", width = 15, height = 6)
 p10 <- ggplot(worldsub[which(worldsub$Commodity == '121229 Seaweeds And Other Algae, Nesoi'),], aes(x=Year, y=ExportValue/1000000, fill=Commodity)) + 
   geom_bar(position="stack", stat="identity") + xlab("Year") + ylab("Dollars (million)") + 
   ggtitle("Export of 121229 Seaweeds And Other Algae, Nesoi") +
+  geom_text(aes(label = round(ExportValue/1000000, 2)), vjust = -0.2)+
   scale_x_continuous(name="Year", breaks=c(2010:2021)) +
   scale_fill_manual(values="#5f96c9") +
   theme_minimal() +
@@ -229,6 +239,7 @@ ggsave("3.a.10.seafood_markets.pdf", width = 15, height = 6)
 p11 <- ggplot(worldsub[which(worldsub$Commodity == '1605 Crustaceans, Molluscs Etc. Prepared Or Preserved'),], aes(x=Year, y=ExportValue/1000000, fill=Commodity)) + 
   geom_bar(position="stack", stat="identity") + xlab("Year") + ylab("Dollars (million)") + 
   ggtitle("Export of 1605 Crustaceans, Molluscs Etc. Prepared Or Preserved") +
+  geom_text(aes(label = round(ExportValue/1000000, 2)), vjust = -0.2)+
   scale_x_continuous(name="Year", breaks=c(2010:2021)) +
   scale_fill_manual(values="#5f96c9") +
   theme_minimal() +
@@ -251,6 +262,7 @@ worldsub_all_change <- trade %>%
 f0 <- ggplot(worldsub_all_change, aes(x=Year, y=year_per_change, fill=Commodity)) + 
   geom_bar(position="stack", stat="identity") + xlab("Year") + ylab("% Change from 12-year mean") + 
   ggtitle("Change in trade for 03 Fish, Crustaceans & Aquatic Invertebrates") +
+  geom_text(aes(label = round(ExportValue/1000000, 2)), vjust = -0.2)+
   scale_x_continuous(name="Year", breaks=c(2010:2021)) +
   scale_fill_manual(values="#5f96c9") +
   theme_minimal() +
@@ -272,6 +284,7 @@ worldsub_change <- trade %>%
 f1 <- ggplot(worldsub_change, aes(x=Year, y=year_per_change, fill=Commodity)) + 
   geom_bar(position="stack", stat="identity") + xlab("Year") + ylab("% Change from 12-year mean") + 
   ggtitle("Change in trade for 0301 Fish, Live") +
+  geom_text(aes(label = round(year_per_change, 1)), vjust = -0.2)+
   scale_x_continuous(name="Year", breaks=c(2010:2021)) +
   scale_fill_manual(values="#5f96c9") +
   theme_minimal() +
@@ -293,6 +306,7 @@ worldsub_change <- trade %>%
 f2 <- ggplot(worldsub_change, aes(x=Year, y=year_per_change, fill=Commodity)) + 
   geom_bar(position="stack", stat="identity") + xlab("Year") + ylab("% Change from 12-year mean") + 
   ggtitle("Change in trade for 0302 Fish, Fresh Or Chilled (no Fillets Or Other Meat)") +
+  geom_text(aes(label = round(year_per_change, 1)), vjust = -0.2)+
   scale_x_continuous(name="Year", breaks=c(2010:2021)) +
   scale_fill_manual(values="#5f96c9") +
   theme_minimal() +
@@ -314,6 +328,7 @@ worldsub_change <- trade %>%
 f3 <- ggplot(worldsub_change, aes(x=Year, y=year_per_change, fill=Commodity)) + 
   geom_bar(position="stack", stat="identity") + xlab("Year") + ylab("% Change from 12-year mean") + 
   ggtitle("Change in trade for 0303 Fish, Frozen (no Fish Fillets Or Other Fish Meat)") +
+  geom_text(aes(label = round(year_per_change, 1)), vjust = -0.2)+
   scale_x_continuous(name="Year", breaks=c(2010:2021)) +
   scale_fill_manual(values="#5f96c9") +
   theme_minimal() +
@@ -335,6 +350,7 @@ worldsub_change <- trade %>%
 f4 <- ggplot(worldsub_change, aes(x=Year, y=year_per_change, fill=Commodity)) + 
   geom_bar(position="stack", stat="identity") + xlab("Year") + ylab("% Change from 12-year mean") + 
   ggtitle("Change in trade for 0304 Fish Fillets & Oth Fish Meat, Fresh, Chill Or Froz") +
+  geom_text(aes(label = round(year_per_change, 1)), vjust = -0.2)+
   scale_x_continuous(name="Year", breaks=c(2010:2021)) +
   scale_fill_manual(values="#5f96c9") +
   theme_minimal() +
@@ -357,6 +373,7 @@ worldsub_change <- trade %>%
 f5 <- ggplot(worldsub_change, aes(x=Year, y=year_per_change, fill=Commodity)) + 
   geom_bar(position="stack", stat="identity") + xlab("Year") + ylab("% Change from 12-year mean") + 
   ggtitle("Change in trade for 0305 Fish, Dried, Salted Or In Brine; Smoked Fish") +
+  geom_text(aes(label = round(year_per_change, 1)), vjust = -0.2)+
   scale_x_continuous(name="Year", breaks=c(2010:2021)) +
   scale_fill_manual(values="#5f96c9") +
   theme_minimal() +
@@ -378,6 +395,7 @@ worldsub_change <- trade %>%
 f6 <- ggplot(worldsub_change, aes(x=Year, y=year_per_change, fill=Commodity)) + 
   geom_bar(position="stack", stat="identity") + xlab("Year") + ylab("% Change from 12-year mean") + 
   ggtitle("Change in trade for 0306 Crustaceans") +
+  geom_text(aes(label = round(year_per_change, 1)), vjust = -0.2)+
   scale_x_continuous(name="Year", breaks=c(2010:2021)) +
   scale_fill_manual(values="#5f96c9") +
   theme_minimal() +
@@ -399,6 +417,7 @@ worldsub_change <- trade %>%
 f7 <- ggplot(worldsub_change, aes(x=Year, y=year_per_change, fill=Commodity)) + 
   geom_bar(position="stack", stat="identity") + xlab("Year") + ylab("% Change from 12-year mean") + 
   ggtitle("Change in trade for 0307 Molluscs") +
+  geom_text(aes(label = round(year_per_change, 1)), vjust = -0.2)+
   scale_x_continuous(name="Year", breaks=c(2010:2021)) +
   scale_fill_manual(values="#5f96c9") +
   theme_minimal() +
@@ -420,6 +439,7 @@ worldsub_change <- trade %>%
 f8 <- ggplot(worldsub_change, aes(x=Year, y=year_per_change, fill=Commodity)) + 
   geom_bar(position="stack", stat="identity") + xlab("Year") + ylab("% Change from 12-year mean") + 
   ggtitle("Change in trade for 0308 Aquatic Invertebrates, Nesoi") +
+  geom_text(aes(label = round(year_per_change, 1)), vjust = -0.2)+
   scale_x_continuous(name="Year", breaks=c(2010:2021)) +
   scale_fill_manual(values="#5f96c9") +
   theme_minimal() +
@@ -442,6 +462,7 @@ worldsub_change <- trade %>%
 f9 <- ggplot(worldsub_change, aes(x=Year, y=year_per_change, fill=Commodity)) + 
   geom_bar(position="stack", stat="identity") + xlab("Year") + ylab("% Change from 12-year mean") + 
   ggtitle("Change in trade for 121221 Seaweeds And Other Algae Fit For Human Consumption") +
+  geom_text(aes(label = round(year_per_change, 1)), vjust = -0.2)+
   scale_x_continuous(name="Year", breaks=c(2010:2021)) +
   scale_fill_manual(values="#5f96c9") +
   theme_minimal() +
@@ -463,6 +484,7 @@ worldsub_change <- trade %>%
 f10 <- ggplot(worldsub_change, aes(x=Year, y=year_per_change, fill=Commodity)) + 
   geom_bar(position="stack", stat="identity") + xlab("Year") + ylab("% Change from 12-year mean") + 
   ggtitle("Change in trade for 121229 Seaweeds And Other Algae, Nesoi") +
+  geom_text(aes(label = round(year_per_change, 1)), vjust = -0.2)+
   scale_x_continuous(name="Year", breaks=c(2010:2021)) +
   scale_fill_manual(values="#5f96c9") +
   theme_minimal() +
@@ -484,6 +506,7 @@ worldsub_change <- trade %>%
 f11 <- ggplot(worldsub_change, aes(x=Year, y=year_per_change, fill=Commodity)) + 
   geom_bar(position="stack", stat="identity") + xlab("Year") + ylab("% Change from 12-year mean") + 
   ggtitle("Change in trade for 1605 Crustaceans, Molluscs Etc. Prepared Or Preserved") +
+  geom_text(aes(label = round(year_per_change, 1)), vjust = -0.2)+
   scale_x_continuous(name="Year", breaks=c(2010:2021)) +
   scale_fill_manual(values="#5f96c9") +
   theme_minimal() +
@@ -507,6 +530,7 @@ t0 <- ggplot(exportcountries_no_world, aes(x=Country, y=ExportValue/1000000, fil
   geom_bar(position="stack", stat="identity") + xlab("Year") + ylab("Dollars (million)") + 
   ggtitle("Top-10 Export Countries (03 Fish, Crustaceans & Aquatic Invertebrates)") +
   #scale_x_continuous(name="Year", breaks=c(2010:2021)) +
+  geom_text(aes(label = round(ExportValue/1000000, 2)), vjust = -0.2)+
   scale_fill_manual(values="#5f96c9") +
   theme_minimal() +
   geom_hline(yintercept=0) +
@@ -527,6 +551,7 @@ t1 <- ggplot(exportcountries_no_world, aes(x=Country, y=ExportValue/1000000, fil
   geom_bar(position="stack", stat="identity") + xlab("Year") + ylab("Dollars (million)") + 
   ggtitle("Top-10 Export Countries (0301 Fish, Live)") +
   #scale_x_continuous(name="Year", breaks=c(2010:2021)) +
+  geom_text(aes(label = round(ExportValue/1000000, 2)), vjust = -0.2)+
   scale_fill_manual(values="#5f96c9") +
   theme_minimal() +
   geom_hline(yintercept=0) +
@@ -548,6 +573,7 @@ t2 <- ggplot(exportcountries_no_world, aes(x=Country, y=ExportValue/1000000, fil
   geom_bar(position="stack", stat="identity") + xlab("Year") + ylab("Dollars (million)") + 
   ggtitle("Top-10 Export Countries (0302 Fish, Fresh Or Chilled (no Fillets Or Other Meat))") +
   #scale_x_continuous(name="Year", breaks=c(2010:2021)) +
+  geom_text(aes(label = round(ExportValue/1000000, 2)), vjust = -0.2)+
   scale_fill_manual(values="#5f96c9") +
   theme_minimal() +
   geom_hline(yintercept=0) +
@@ -569,6 +595,7 @@ t3 <- ggplot(exportcountries_no_world, aes(x=Country, y=ExportValue/1000000, fil
   geom_bar(position="stack", stat="identity") + xlab("Year") + ylab("Dollars (million)") + 
   ggtitle("Top-10 Export Countries (0303 Fish, Frozen (no Fish Fillets Or Other Fish Meat))") +
   #scale_x_continuous(name="Year", breaks=c(2010:2021)) +
+  geom_text(aes(label = round(ExportValue/1000000, 2)), vjust = -0.2)+
   scale_fill_manual(values="#5f96c9") +
   theme_minimal() +
   geom_hline(yintercept=0) +
@@ -590,6 +617,7 @@ t4 <- ggplot(exportcountries_no_world, aes(x=Country, y=ExportValue/1000000, fil
   geom_bar(position="stack", stat="identity") + xlab("Year") + ylab("Dollars (million)") + 
   ggtitle("Top-10 Export Countries (0304 Fish Fillets & Oth Fish Meat, Fresh, Chill Or Froz)") +
   #scale_x_continuous(name="Year", breaks=c(2010:2021)) +
+  geom_text(aes(label = round(ExportValue/1000000, 2)), vjust = -0.2)+
   scale_fill_manual(values="#5f96c9") +
   theme_minimal() +
   geom_hline(yintercept=0) +
@@ -610,6 +638,7 @@ t5 <- ggplot(exportcountries_no_world, aes(x=Country, y=ExportValue/1000000, fil
   geom_bar(position="stack", stat="identity") + xlab("Year") + ylab("Dollars (million)") + 
   ggtitle("Top-10 Export Countries (0305 Fish, Dried, Salted Or In Brine; Smoked Fish)") +
   #scale_x_continuous(name="Year", breaks=c(2010:2021)) +
+  geom_text(aes(label = round(ExportValue/1000000, 2)), vjust = -0.2)+
   scale_fill_manual(values="#5f96c9") +
   theme_minimal() +
   geom_hline(yintercept=0) +
@@ -630,6 +659,7 @@ t6 <- ggplot(exportcountries_no_world, aes(x=Country, y=ExportValue/1000000, fil
   geom_bar(position="stack", stat="identity") + xlab("Year") + ylab("Dollars (million)") + 
   ggtitle("Top-10 Export Countries (0306 Crustaceans)") +
   #scale_x_continuous(name="Year", breaks=c(2010:2021)) +
+  geom_text(aes(label = round(ExportValue/1000000, 2)), vjust = -0.2)+
   scale_fill_manual(values="#5f96c9") +
   theme_minimal() +
   geom_hline(yintercept=0) +
@@ -650,6 +680,7 @@ t7 <- ggplot(exportcountries_no_world, aes(x=Country, y=ExportValue/1000000, fil
   geom_bar(position="stack", stat="identity") + xlab("Year") + ylab("Dollars (million)") + 
   ggtitle("Top-10 Export Countries (0307 Molluscs)") +
   #scale_x_continuous(name="Year", breaks=c(2010:2021)) +
+  geom_text(aes(label = round(ExportValue/1000000, 2)), vjust = -0.2)+
   scale_fill_manual(values="#5f96c9") +
   theme_minimal() +
   geom_hline(yintercept=0) +
@@ -670,6 +701,7 @@ t8 <- ggplot(exportcountries_no_world, aes(x=Country, y=ExportValue/1000000, fil
   geom_bar(position="stack", stat="identity") + xlab("Year") + ylab("Dollars (million)") + 
   ggtitle("Top-10 Export Countries (0308 Aquatic Invertebrates, Nesoi)") +
   #scale_x_continuous(name="Year", breaks=c(2010:2021)) +
+  geom_text(aes(label = round(ExportValue/1000000, 2)), vjust = -0.2)+
   scale_fill_manual(values="#5f96c9") +
   theme_minimal() +
   geom_hline(yintercept=0) +
@@ -691,6 +723,7 @@ t9 <- ggplot(exportcountries_no_world, aes(x=Country, y=ExportValue/1000000, fil
   geom_bar(position="stack", stat="identity") + xlab("Year") + ylab("Dollars (million)") + 
   ggtitle("Top-10 Export Countries (121221 Seaweeds And Other Algae Fit For Human Consumption)") +
   #scale_x_continuous(name="Year", breaks=c(2010:2021)) +
+  geom_text(aes(label = round(ExportValue/1000000, 2)), vjust = -0.2)+
   scale_fill_manual(values="#5f96c9") +
   theme_minimal() +
   geom_hline(yintercept=0) +
@@ -712,6 +745,7 @@ t10 <- ggplot(exportcountries_no_world, aes(x=Country, y=ExportValue/1000000, fi
   geom_bar(position="stack", stat="identity") + xlab("Year") + ylab("Dollars (million)") + 
   ggtitle("Top-10 Export Countries (121229 Seaweeds And Other Algae, Nesoi)") +
   #scale_x_continuous(name="Year", breaks=c(2010:2021)) +
+  geom_text(aes(label = round(ExportValue/1000000, 2)), vjust = -0.2)+
   scale_fill_manual(values="#5f96c9") +
   theme_minimal() +
   geom_hline(yintercept=0) +
@@ -732,6 +766,7 @@ t11 <- ggplot(exportcountries_no_world, aes(x=Country, y=ExportValue/1000000, fi
   geom_bar(position="stack", stat="identity") + xlab("Year") + ylab("Dollars (million)") + 
   ggtitle("Top-10 Export Countries (1605 Crustaceans, Molluscs Etc. Prepared Or Preserved)") +
   #scale_x_continuous(name="Year", breaks=c(2010:2021)) +
+  geom_text(aes(label = round(ExportValue/1000000, 2)), vjust = -0.2)+
   scale_fill_manual(values="#5f96c9") +
   theme_minimal() +
   geom_hline(yintercept=0) +
