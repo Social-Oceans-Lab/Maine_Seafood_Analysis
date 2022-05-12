@@ -201,7 +201,7 @@ ggsave("3.a.8.seafood_markets.pdf", width = 15, height = 6)
 
 p9 <- ggplot(worldsub[which(worldsub$Commodity == '121221 Seaweeds And Other Algae Fit For Human Consumption'),], aes(x=Year, y=ExportValue/1000000, fill=Commodity)) + 
   geom_bar(position="stack", stat="identity") + xlab("Year") + ylab("Dollars (million)") + 
-  ggtitle("121221 Seaweeds And Other Algae Fit For Human Consumption") +
+  ggtitle("Export of 121221 Seaweeds And Other Algae Fit For Human Consumption") +
   scale_x_continuous(name="Year", breaks=c(2010:2021)) +
   scale_fill_manual(values="#5f96c9") +
   theme_minimal() +
@@ -215,7 +215,7 @@ ggsave("3.a.9.seafood_markets.pdf", width = 15, height = 6)
 
 p10 <- ggplot(worldsub[which(worldsub$Commodity == '121229 Seaweeds And Other Algae, Nesoi'),], aes(x=Year, y=ExportValue/1000000, fill=Commodity)) + 
   geom_bar(position="stack", stat="identity") + xlab("Year") + ylab("Dollars (million)") + 
-  ggtitle("121229 Seaweeds And Other Algae, Nesoi") +
+  ggtitle("Export of 121229 Seaweeds And Other Algae, Nesoi") +
   scale_x_continuous(name="Year", breaks=c(2010:2021)) +
   scale_fill_manual(values="#5f96c9") +
   theme_minimal() +
@@ -228,7 +228,7 @@ ggsave("3.a.10.seafood_markets.pdf", width = 15, height = 6)
 
 p11 <- ggplot(worldsub[which(worldsub$Commodity == '1605 Crustaceans, Molluscs Etc. Prepared Or Preserved'),], aes(x=Year, y=ExportValue/1000000, fill=Commodity)) + 
   geom_bar(position="stack", stat="identity") + xlab("Year") + ylab("Dollars (million)") + 
-  ggtitle("1605 Crustaceans, Molluscs Etc. Prepared Or Preserved") +
+  ggtitle("Export of 1605 Crustaceans, Molluscs Etc. Prepared Or Preserved") +
   scale_x_continuous(name="Year", breaks=c(2010:2021)) +
   scale_fill_manual(values="#5f96c9") +
   theme_minimal() +
@@ -742,19 +742,6 @@ t11 <- ggplot(exportcountries_no_world, aes(x=Country, y=ExportValue/1000000, fi
 
 ggsave("3.c.11.seafood_markets.pdf", width = 15, height = 6)
 
-
-
-#Stopped coding here, but left Seafood Production code below in case it can be adapted for the following
-
-### Commodity Plots (focusing on latest ten year range (Yr 1...Yr10))
-Done # Plot 1 - stacked bar plot of world totals stacking 4-digit and 6-digit commodities (y-axis)  by Yr1 to Yr10 (x-axis) Note: this means 2-digit commodity gets dropped (note: remove 2-digit)
-Done # (#12) Plots 2 to 14 - one line graph for each commodity world totals by 4-digit and 6-digit commodity (y-axis) by year (x-axis) Y1 to Yr10
-Done # (#12) Summary Stats - Percentage changes from Yr1 to Yr10 (% change by mean - total exports) (for each HS code)
-
-### Countries Plots 
-Done# Plots 15 to 23 - side by side Yr1 and Yr10 plots for each of the 12 4-digit and 6-digit commodities showing the top ten export destination countries + "other countries" as an aggregate of remaining country exports
-# Note - Canada will be on a different scale for some commodities and we can discuss whether to separate it, or show it on a different scale if possible
-# Summary Stats - Percentage shares of countries in each of the plots 15 to 23 **or changes from 1st 3 or 5 years versus last 3 or 5 years (more stable and more data to work with)
 
 
 

@@ -40,9 +40,9 @@ eel <- production[which(production$species == 'Elver'),]
 eel$region <- factor(eel$region, levels = c("Downeast","Southern", "Midcoast","Unidentified"))
 
 
-c1 <- ggplot(ocean_quahog, aes(x=Year, y=weight/100000, fill=region)) + 
+c1 <- ggplot(eel, aes(x=Year, y=weight/100000, fill=region)) + 
   geom_bar(position="stack", stat="identity") + xlab("Year") + ylab("Lbs") + 
-  ggtitle("OCEAN QUAHOG LANDINGS") +
+  ggtitle("AMERICAN EEL LANDINGS") +
   scale_x_continuous(name="Year", breaks=c(2010:2020)) +
   scale_fill_manual(values=cbbPalette) +
   theme_minimal() +
@@ -50,9 +50,9 @@ c1 <- ggplot(ocean_quahog, aes(x=Year, y=weight/100000, fill=region)) +
   theme(axis.line = element_line(colour = "black", 
                                  size = 1, linetype = "solid")) 
 
-c2 <- ggplot(ocean_quahog, aes(x=Year, y=Dollars/100000, fill=region)) + 
+c2 <- ggplot(eel, aes(x=Year, y=Dollars/100000, fill=region)) + 
   geom_bar(position="stack", stat="identity") + xlab("Year") + ylab("Dollars (million)") + 
-  ggtitle("OCEAN QUAHOG VALUE") +
+  ggtitle("AMERICAN EEL VALUE") +
   scale_x_continuous(name="Year", breaks=c(2010:2020)) +
   scale_fill_manual(values=cbbPalette) +
   theme_minimal() +
@@ -63,12 +63,12 @@ c2 <- ggplot(ocean_quahog, aes(x=Year, y=Dollars/100000, fill=region)) +
 plot_ocean_quahog <- 
   ggarrange(c1, c2, labels = c("A", "B"),
             common.legend = TRUE, legend = "right")
-ggsave("2.e.3.plot_ocean_quahog.pdf", width = 15, height = 6)
+ggsave("2.e.3.plot_eel.pdf", width = 15, height = 6)
 
 # Seaweeds (unspecified)
 # Eastern oyster
 # Sea scallop
-# Soft-shell clam
+# Soft shell clam
 # Quahog (Ocean, Northern)
 
 
