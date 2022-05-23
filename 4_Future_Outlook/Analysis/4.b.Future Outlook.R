@@ -1,5 +1,5 @@
 # Future Outlook 
-# 4. Future Outlook
+# 4.b.Future Outlook
 # Version 1.0. March 1, 2022
 
 
@@ -417,5 +417,5 @@ blob_plot_me <- ggplot(blobs_colrs, aes(xmin = x_min, xmax = x_max,
   labs(caption="Note: If no data are available for a given year, analysis defaults to more recent year(s)")+
   theme_bw() 
   
-ggsave("4.c.Future_Outlook.pdf", width = 15, height = 9)
+ggsave("4.b.Future_Outlook.pdf", width = 15, height = 9)
 
