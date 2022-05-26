@@ -21,6 +21,7 @@
 # Jonah crab
 # Atlantic herring 
 # Menhadens
+# Mussels
 
 ### packages ####
 library(ggplot2)
@@ -31,6 +32,7 @@ library(dplyr)
 #### data loading ####
 
 production <- read.csv("/Users/jstoll/OneDrive - University of Maine System/Social_Coasts_Lab/seafood_systems/Data/Processed_Data/ACCSP_Landings_Nonconfidential_Commercial_2007_2020_clean.csv", stringsAsFactors = FALSE)
+
 
 cats <- read.csv("/Users/jstoll/OneDrive - University of Maine System/Social_Coasts_Lab/seafood_systems/Data/Processed_Data/Species_Categories_Climate_Vulnerability_clean.csv", stringsAsFactors = FALSE)
 
@@ -530,38 +532,6 @@ ggsave("2.d.14.plot_oyster.pdf", width = 15, height = 6)
 
 seaweed <- production[which(production$NOAA.category == 'Seaweed'),]
 
-
-# ACCSP data appears to be wrong, so we are using DMR landings data 
-#Data source: https://www.maine.gov/dmr/commercial-fishing/landings/documents/LandingsBySpecies.Table.pdf
-
-# Landings Value ($)
-#2016 616578 
-#2017 807711 
-#2018 974981 
-#2019 855068 
-#2020 1096366
-
-#data.frame[row_number, column_number] = new_value
-seaweed[4, 6] = 616578
-seaweed[5, 6] = 807711
-seaweed[6, 6] = 974981
-seaweed[7, 6] = 855068
-seaweed[8, 6] = 1096366
-
-# Landings Weight (Lbs)
-
-#2016 17462819 
-#2017 20577355 
-#2018 23322594 
-#2019 15196753 
-#2020 16223565
-
-seaweed[4, 4] = 17462819
-seaweed[5, 4] = 20577355
-seaweed[6, 4] = 23322594
-seaweed[7, 4] = 15196753
-seaweed[8, 4] = 16223565
-
 seaweed$State <- factor(seaweed$State, levels = c("CONNECTICUT","RHODE ISLAND", "MASSACHUSETTS","NEW HAMPSHIRE","MAINE"))
 
 seaweed1 <- ggplot(seaweed[which(seaweed$State == 'MAINE'),], aes(x=Year, y=Pounds/1000000, fill=State)) + 
@@ -594,37 +564,6 @@ ggsave("2.d.15.plot_seaweed.pdf", width = 15, height = 6)
 
 eel <- production[which(production$Common.Name == 'EEL, AMERICAN'),]
 
-# Fill in data gap using DMR data
-#Data source: https://www.maine.gov/dmr/commercial-fishing/landings/documents/LandingsBySpecies.Table.pdf
-
-# Landings Value ($)
-#2016 13446828 
-#2017 12166417 
-#2018 21753350 
-#2019 20197518 
-#2020 5067521
-
-#data.frame[row_number, column_number] = new_value
-eel[32, 6] = 13446828
-eel[36, 6] = 12166417
-eel[40, 6] = 21753350
-eel[44, 6] = 20197518
-eel[47, 6] = 5067521
-
-# Landings Weight (Lbs)
-
-#2016 9400 
-#2017 9343 
-#2018 9194 
-#2019 9750 
-#2020 9652
-
-eel[32, 4] = 9400
-eel[36, 4] = 9343
-eel[40, 4] = 9194
-eel[44, 4] = 9750
-eel[47, 4] = 9652
-
 eel$State <- factor(eel$State, levels = c("CONNECTICUT","RHODE ISLAND", "MASSACHUSETTS","NEW HAMPSHIRE","MAINE"))
 
 eel1 <- ggplot(eel, aes(x=Year, y=Pounds/1000000, fill=State)) + 
@@ -651,6 +590,36 @@ plot_eel <-
   ggarrange(eel1, eel2, labels = c("A", "B"),
             common.legend = TRUE, legend = "right")
 ggsave("2.d.11.plot_eel.pdf", width = 15, height = 6)
+
+# Mussel
+
+mussel <- production[which(production$Common.Name == 'MUSSEL, SEA'),]
+mussel$State <- factor(mussel$State, levels = c("CONNECTICUT","RHODE ISLAND", "MASSACHUSETTS","NEW HAMPSHIRE","MAINE"))
+
+m1 <- ggplot(mussel, aes(x=Year, y=Pounds/1000000, fill=State)) + 
+  geom_bar(position="stack", stat="identity") + xlab("Year") + ylab("Lbs (millions)") + 
+  ggtitle("BLUE MUSSEL LANDINGS") +
+  scale_x_continuous(name="Year", breaks=c(2010:2020)) +
+  scale_fill_manual(values=cbbPalette2) +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 90)) +
+  theme(axis.line = element_line(colour = "black", 
+                                 size = 1, linetype = "solid")) 
+
+m2 <- ggplot(mussel, aes(x=Year, y=Dollars/1000000, fill=State)) + 
+  geom_bar(position="stack", stat="identity") + xlab("Year") + ylab("Dollars (millions)") + 
+  ggtitle("BLUE MUSSEL VALUE") +
+  scale_x_continuous(name="Year", breaks=c(2010:2020)) +
+  scale_fill_manual(values=cbbPalette2) +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 90)) +
+  theme(axis.line = element_line(colour = "black", 
+                                 size = 1, linetype = "solid")) 
+
+plot_mussel <-
+  ggarrange(m1, m2, labels = c("A", "B"),
+            common.legend = TRUE, legend = "right")
+ggsave("2.d.16.plot_mussel.pdf", width = 15, height = 6)
 
 
 

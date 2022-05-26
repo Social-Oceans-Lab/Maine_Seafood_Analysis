@@ -22,11 +22,12 @@ library(ggplot2)
 # Jonah crab
 # Atlantic herring 
 # Menhadens
+# Mussels
 
 ### Load data
 
 production <- read.csv("/Users/jstoll/OneDrive - University of Maine System/Social_Coasts_Lab/seafood_systems/Data/Processed_Data/production.csv", 
-                       stringsAsFactors = FALSE)
+                       stringsAsFactors = FALSE) # Note: this file is created in 2.a.Seafood_Production.R
 
 ### plot data (by weight and value)
 
@@ -556,7 +557,7 @@ menhadens$region <- factor(menhadens$region, levels = c("Downeast","Southern", "
 
 b1 <- ggplot(menhadens, aes(x=Year, y=weight/1000000, fill=region)) + 
   geom_bar(position="stack", stat="identity") + xlab("Year") + ylab("Lbs (million)") + 
-  ggtitle("MENHADENSLANDINGS") +
+  ggtitle("MENHADENS LANDINGS") +
   scale_x_continuous(name="Year", breaks=c(2010:2020)) +
   scale_fill_manual(values=cbbPalette) +
   theme_minimal() +
@@ -579,6 +580,38 @@ plot_menhadens <-
             common.legend = TRUE, legend = "right")
 ggsave("2.e.5.plot_menhadens.pdf", width = 15, height = 6)
 
+
+# Menhadens
+
+
+mussel <- production[which(production$species == 'Mussel Blue Sea'),]
+mussel$region <- factor(mussel$region, levels = c("Downeast","Southern", "Midcoast","Unidentified"))
+
+
+m1 <- ggplot(mussel, aes(x=Year, y=weight/1000000, fill=region)) + 
+  geom_bar(position="stack", stat="identity") + xlab("Year") + ylab("Lbs (million)") + 
+  ggtitle("BLUE MUSSEL LANDINGS") +
+  scale_x_continuous(name="Year", breaks=c(2010:2020)) +
+  scale_fill_manual(values=cbbPalette) +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 90)) +
+  theme(axis.line = element_line(colour = "black", 
+                                 size = 1, linetype = "solid")) 
+
+m2 <- ggplot(mussel, aes(x=Year, y=Dollars/1000000, fill=region)) + 
+  geom_bar(position="stack", stat="identity") + xlab("Year") + ylab("Dollars (million)") + 
+  ggtitle("BLUE MUSSEL VALUE") +
+  scale_x_continuous(name="Year", breaks=c(2010:2020)) +
+  scale_fill_manual(values=cbbPalette) +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 90)) +
+  theme(axis.line = element_line(colour = "black", 
+                                 size = 1, linetype = "solid")) 
+
+plot_mussel <- 
+  ggarrange(m1, m2, labels = c("A", "B"),
+            common.legend = TRUE, legend = "right")
+ggsave("2.e.18.plot_mussels.pdf", width = 15, height = 6)
 
 
 

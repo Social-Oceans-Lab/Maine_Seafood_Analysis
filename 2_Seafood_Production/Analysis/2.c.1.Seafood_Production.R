@@ -19,39 +19,6 @@ library(ggpubr)
 #reading in data
 lands <- read.csv("/Users/jstoll/OneDrive - University of Maine System/Social_Coasts_Lab/seafood_systems/Data/Processed_Data/ACCSP_Landings_Nonconfidential_Commercial_2007_2020_clean.csv", stringsAsFactors = FALSE)
 
-# Seaweed "correction"
-
-# ACCSP data appears to be wrong, so we are using DMR landings data 
-#Data source: https://www.maine.gov/dmr/commercial-fishing/landings/documents/LandingsBySpecies.Table.pdf
-
-# Landings Value ($)
-#2016 616578 
-#2017 807711 
-#2018 974981 
-#2019 855068 
-#2020 1096366
-
-#data.frame[row_number, column_number] = new_value
-lands[3753, 6] = 616578
-lands[3754, 6] = 807711
-lands[3755, 6] = 974981
-lands[3756, 6] = 855068
-lands[3757, 6] = 1096366
-
-# Landings Weight (Lbs)
-
-#2016 17462819 
-#2017 20577355 
-#2018 23322594 
-#2019 15196753 
-#2020 16223565
-
-lands[3753, 4] = 17462819
-lands[3754, 4] = 20577355
-lands[3755, 4] = 23322594
-lands[3756, 4] = 15196753
-lands[3757, 4] = 16223565
-
 ### Tables and heatmap of 5 and 10-year trends
 
 ### Calculate Z-scores
@@ -294,6 +261,7 @@ me_zs <- ggplot(lands_z_me_nonconf, aes(factor(Year), Common.Name, fill = zscore
 # Jonah crab
 # Atlantic herring 
 # Menhadens
+# Blue mussel
 
 lands_z_me_nonconf_focus <- lands_z_me_nonconf[lands_z_me_nonconf$Common.Name == 'EEL, AMERICAN'|
                                                lands_z_me_nonconf$Common.Name == 'SEAWEED'|
@@ -311,7 +279,8 @@ lands_z_me_nonconf_focus <- lands_z_me_nonconf[lands_z_me_nonconf$Common.Name ==
                                                lands_z_me_nonconf$Common.Name == 'LOBSTER, AMERICAN'|
                                                lands_z_me_nonconf$Common.Name == 'CRAB, JONAH'|
                                                lands_z_me_nonconf$Common.Name == 'HERRING, ATLANTIC'|
-                                               lands_z_me_nonconf$Common.Name == 'MENHADENS'
+                                               lands_z_me_nonconf$Common.Name == 'MENHADENS'|
+                                               lands_z_me_nonconf$Common.Name == 'MUSSEL, SEA'    
                                                  , ]
 
 
@@ -712,6 +681,28 @@ p15 <- ggplot(menhadens, aes(x=Year, y=zscores, color = zscores)) +
   theme(axis.text.x = element_text(angle = 90, vjust = .5)) 
 
 ggsave("2.c.1.p.Trends_Landing.pdf", width = 15, height = 9)
+
+# Mussel 
+
+mussel <- lands_z_me_nonconf_focus[which(lands_z_me_nonconf_focus$Common.Name == 'MUSSEL, SEA'),]
+
+p16 <- ggplot(mussel, aes(x=Year, y=zscores, color = zscores)) +
+  #geom_line(size = 1)+
+  geom_hline(yintercept=0, size = 2) +
+  stat_smooth(aes(color=..y..), method = "lm", formula = y ~ x, size = 2) +
+  scale_colour_gradient2(low = "#062847", high = "#e03f07", 
+                         midpoint=0) +
+  geom_point(size = 3) +
+  ggtitle("10-Year Trend in Landings by Value (BLUE MUSSEL)") +
+  ylim(-3,3) +
+  xlab(" ") + 
+  ylab("Annual Variability in Landings Value (normalized z-score)") +
+  labs(color = "Z score") +
+  scale_x_continuous(breaks=seq(2010,2020,1)) +
+  theme_dark() +
+  theme(axis.text.x = element_text(angle = 90, vjust = .5)) 
+
+ggsave("2.c.1.q.Trends_Landing.pdf", width = 15, height = 9)
 
 
 
