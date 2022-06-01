@@ -119,7 +119,7 @@ prod_reorder <- production %>%
          Entity_wt = reorder_within(region, tot_order, NOAA.category))  #reorder state by total (with other = 0) within NOAA.category groups
 
 prod_colors <- tibble(Color = colorRampPalette(c("#474747", "#ebebeb"))(4),  #selecting colors - took some googling to get right. (#)  indicates number of bins
-                      region = c("Downeast", "Midcoast", "Southern", 
+                      region = c("Eastern", "Midcoast", "Southern", 
                                  "Unidentified"))             #names to go with each color
 
 

@@ -31,7 +31,7 @@ library(dplyr)
 #### data loading ####
 
 exportcountries <- read.csv("/Users/jstoll/OneDrive - University of Maine System/Social_Coasts_Lab/seafood_systems/Data/Processed_Data/USATradeData4DigitExportCountries2010_2021.csv", stringsAsFactors = FALSE)
-
+# https://usatrade.census.gov/index.php
 #### Fill commodities column labels ####
 
 comlabels <- unique(exportcountries$Commodity)[c(1,3:14)] ##2nd value in list appears blank therefore removed
