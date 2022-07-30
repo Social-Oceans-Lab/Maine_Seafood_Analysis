@@ -17,7 +17,7 @@ library(gt)
 library(ggpubr)
 
 #reading in data
-lands <- read.csv("/Users/jstoll/OneDrive - University of Maine System/Social_Coasts_Lab/seafood_systems/Data/Processed_Data/ACCSP_Landings_Nonconfidential_Commercial_2007_2020_clean.csv", stringsAsFactors = FALSE)
+lands <- read.csv("/Users/jstoll/tmp/Maine_Seafood_Analysis/Data/ACCSP_Landings_Nonconfidential_Commercial_2007_2020_clean.csv", stringsAsFactors = FALSE)
 
 ### Tables and heatmap of 5 and 10-year trends
 

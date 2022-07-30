@@ -144,6 +144,16 @@ lands[nrow(lands) + 1,] <- c(2012, "MAINE", "SEAWEED", 1606535, 1606535, 426320)
 lands[nrow(lands) + 1,] <- c(2013, "MAINE", "SEAWEED", 1423773, 1423773, 350785)
 lands[nrow(lands) + 1,] <- c(2015, "MAINE", "SEAWEED", 1295998, 1295998, 415433) 
 
+# Revise Maine's menhaden data 
+
+lands$Live.Pounds[2907]<- "6133104" # 2016
+lands$Live.Pounds[2910]<- "14816783" # 2017
+lands$Live.Pounds[2917]<- "25298442" # 2018
+lands$Live.Pounds[2921]<- "26972192" # 2019
+lands$Live.Pounds[2926]<- "22129430" # 2020
+
+
+
 
 #converting * to 0
 lands <- lands %>%                               

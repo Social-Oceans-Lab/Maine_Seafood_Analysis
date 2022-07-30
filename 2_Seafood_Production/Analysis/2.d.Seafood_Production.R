@@ -31,7 +31,7 @@ library(dplyr)
 
 #### data loading ####
 
-production <- read.csv("/Users/jstoll/OneDrive - University of Maine System/Social_Coasts_Lab/seafood_systems/Data/Processed_Data/ACCSP_Landings_Nonconfidential_Commercial_2007_2020_clean.csv", stringsAsFactors = FALSE)
+production <- read.csv("/Users/jstoll/tmp/Maine_Seafood_Analysis/Data/ACCSP_Landings_Nonconfidential_Commercial_2007_2020_clean.csv", stringsAsFactors = FALSE)
 
 
 cats <- read.csv("/Users/jstoll/OneDrive - University of Maine System/Social_Coasts_Lab/seafood_systems/Data/Processed_Data/Species_Categories_Climate_Vulnerability_clean.csv", stringsAsFactors = FALSE)
