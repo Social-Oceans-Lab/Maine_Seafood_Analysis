@@ -26,6 +26,7 @@ library(ggplot2)
 
 ### Load data
 
+
 production <- read.csv("/Users/jstoll/OneDrive - University of Maine System/Social_Coasts_Lab/seafood_systems/Data/Processed_Data/production.csv", 
                        stringsAsFactors = FALSE) # Note: this file is created in 2.a.Seafood_Production.R
 
